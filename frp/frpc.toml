@@ -1,0 +1,7 @@
+serverAddr = '47.122.119.120'
+serverPort = 7000
+includes = ['./tunnels/*.toml']
+
+[auth]
+token = 'token123456'
+

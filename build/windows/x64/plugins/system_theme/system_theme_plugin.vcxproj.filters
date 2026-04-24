@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\system_theme_plugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5335F036-11F9-3062-A8CA-B32E348AABEA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

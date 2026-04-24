@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\CMakeFiles\f1b6bf61446e143a7cccc7ea52be7118\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F4EF4A7C-43AC-3D48-B137-BDF937D4942E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
