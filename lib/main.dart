@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frp_flutter/routes/index.dart';
-import 'package:toml/toml.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:flutter/foundation.dart';
 
 void main() async {
   //确保 Flutter 绑定已初始化
@@ -11,12 +11,13 @@ void main() async {
   await windowManager.ensureInitialized();
 
   //配置窗口选项
+  if(defaultTargetPlatform == TargetPlatform.windows){
   WindowOptions windowOptions = const WindowOptions(
     //启动时窗口大小
     size: Size(800, 600),
 
     //窗口最小大小
-    minimumSize: Size(400, 480),
+    minimumSize: Size(400, 300),
 
     //窗口是否居中
     center: true,
@@ -30,15 +31,7 @@ void main() async {
     await windowManager.show();
     await windowManager.focus();
   });
+  }
 
   runApp(AppRestartWrapper());
-}
-
-//加载toml文件并转成map类型(调用方式：var data = await frpToml()，需要future)
-Future<Map> frpToml() async {
-  var document = await TomlDocument.load('lib/frp/frpc.toml');
-
-  //转换为标准Map类型进行存取
-  var config = document.toMap();
-  return config;
 }

@@ -3,6 +3,8 @@ import '../../components/Main/Appbar.dart';
 import '../../pages/Main/index.dart';
 import 'Pages.dart';
 import 'TabBarButton.dart';
+import 'package:flutter/foundation.dart';
+
 
 // 手机端页面
 class PhonePage extends StatefulWidget {
@@ -16,7 +18,7 @@ class _PhonePageState extends State<PhonePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context),
+      appBar: defaultTargetPlatform == TargetPlatform.android ? null : appBar(context),
       body: Column(
         children: [
           // 主内容区域

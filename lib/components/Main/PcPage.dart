@@ -3,6 +3,14 @@ import '../../components/Main/Appbar.dart';
 import '../../pages/Main/index.dart';
 import 'Pages.dart';
 import 'TabBarButton.dart';
+import 'package:flutter/foundation.dart';
+
+class NoScrollbarBehavior extends ScrollBehavior {
+  @override
+  Widget buildScrollbar(BuildContext context, Widget child, ScrollableDetails details) {
+    return child; // 直接返回子组件，不包裹滚动条
+  }
+}
 
 // 电脑端页面
 class PcPage extends StatefulWidget {
@@ -20,11 +28,15 @@ class _PcPageState extends State<PcPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context),
+      appBar: defaultTargetPlatform == TargetPlatform.android ? null : appBar(context),
       body: Row(
         children: <Widget>[
           // 左侧导航栏
-          NavigationRail(
+          ScrollConfiguration(
+            behavior: NoScrollbarBehavior(),
+            child: NavigationRail(
+            //启用滚动
+            scrollable: true,
             backgroundColor: Theme.of(context).colorScheme.surfaceContainerLow,
             // 点击导航项时切换页面
             onDestinationSelected: (int index) {
@@ -38,29 +50,20 @@ class _PcPageState extends State<PcPage> {
             destinations: getSideTabBarWidget(),
             // 当前选中的项
             selectedIndex: currentIndex,
+            //trailing置于底部
+            trailingAtBottom: true,
             // 底部附加区域
             // 这里放了一个切换标签显示/隐藏的按钮
-            trailing: Expanded(
-              child: Column(
-                // 这里使用 end，所以按钮会被放到底部
-                // 如果你想放到顶部，这里应改成 MainAxisAlignment.start
-                mainAxisAlignment: MainAxisAlignment.end,
-                // 横向居中
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // 切换是否隐藏导航按钮文字
-                  IconButton(
-                    onPressed: () {
-                      labelType == NavigationRailLabelType.all
-                          ? labelType = NavigationRailLabelType.none
-                          : labelType = NavigationRailLabelType.all;
-                      setState(() {});
-                    },
-                    icon: Icon(Icons.menu),
-                  ),
-                  SizedBox(height: 20),
-                ],
-              ),
+            trailing:  Container(
+              margin: EdgeInsets.only(top: 15, bottom: 15),
+              child: IconButton(
+                  onPressed: () {
+                    labelType == NavigationRailLabelType.all ? labelType = NavigationRailLabelType.none : labelType = NavigationRailLabelType.all;
+                    setState(() {});
+                  },
+                  icon: Icon(Icons.menu, size: 25,),
+                ),
+              )      
             ),
           ),
           // 右侧主内容区域

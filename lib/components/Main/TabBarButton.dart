@@ -35,6 +35,7 @@ List<NavigationRailDestination> getSideTabBarWidget() {
   return List.generate(_tablist.length, (int index) {
     return NavigationRailDestination(
       // 未选中图标
+
       icon: Icon(_tablist[index]["icon"]!),
       // 选中图标
       selectedIcon: Icon(_tablist[index]["active_icon"]!),

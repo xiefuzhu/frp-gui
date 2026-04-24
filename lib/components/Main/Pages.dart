@@ -27,7 +27,7 @@ Expanded pages(BuildContext context) {
         transitionBuilder: (child, animation) {
 
           // 根据新旧页面相对位置的情况，选择对应进入动画，即是从左往右还是从右往左进入
-          final pcBeginOffset = (child.key == currentPage.key) ? (isForward ? const Offset(0, 1) : const Offset(0, -1)) : (isForward ? const Offset(0, -1) : const Offset(0, 1));
+          final pcBeginOffset = (child.key == currentPage.key) ? (isForward ? const Offset(0, -1) : const Offset(0, 1)) : (isForward ? const Offset(0, 1) : const Offset(0, -1));
           final phoneBeginOffset = (child.key == currentPage.key) ? (isForward ? const Offset(1, 0) : const Offset(-1, 0)) : (isForward ? const Offset(-1, 0) : const Offset(1, 0));
 
           return SlideTransition(
