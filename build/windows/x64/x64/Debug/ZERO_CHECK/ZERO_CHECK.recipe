@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\flutter\frp_flutter\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\CMakeFiles\899fb20df3541c6eb089d04d6eb92aec\flutter_windows.dll.rule">
+    <CustomBuild Include="C:\flutter\frp_flutter\build\windows\x64\CMakeFiles\8b1280e88ecde79b123560d531bc0ba8\flutter_windows.dll.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\CMakeFiles\91866ede036a6ed07395a11e856c7136\flutter_assemble.rule">
+    <CustomBuild Include="C:\flutter\frp_flutter\build\windows\x64\CMakeFiles\74c2ba02bdadf866631240182b00f232\flutter_assemble.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\CMakeLists.txt" />
+    <CustomBuild Include="C:\flutter\frp_flutter\windows\flutter\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
+    <None Include="C:\flutter\frp_flutter\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{F4EF4A7C-43AC-3D48-B137-BDF937D4942E}</UniqueIdentifier>
+      <UniqueIdentifier>{7D951E00-6791-38E1-91ED-623D85D5B643}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

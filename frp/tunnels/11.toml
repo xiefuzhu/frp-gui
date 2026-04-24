@@ -1,0 +1,6 @@
+[[proxies]]
+name = '11'
+type = 'tcp'
+localIP = '127.0.0.1'
+localPort = 1245
+remotePort = 1345
