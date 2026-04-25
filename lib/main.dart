@@ -17,7 +17,7 @@ void main() async {
     size: Size(800, 600),
 
     //窗口最小大小
-    minimumSize: Size(400, 300),
+    minimumSize: Size(400, 400),
 
     //窗口是否居中
     center: true,

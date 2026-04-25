@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:provider/provider.dart';
 import '../pages/Main/index.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:system_theme/system_theme.dart';
 
+//声明主题模式和主题色初始值，在后面外观设置功能中用来修改
 final themeModeNotifier = ValueNotifier<ThemeMode>(ThemeMode.system);
 final colorModeNotifier = ValueNotifier<Color>(SystemTheme.accentColor.accent);
 
-//声明主题模式和主题色初始值，在后面外观设置功能中用来修改
-ThemeMode themeMode = ThemeMode.system;
-Color colorMode = SystemTheme.accentColor.accent;
 
 Widget getRootWidget() {
   return ValueListenableBuilder<ThemeMode>(
     valueListenable: themeModeNotifier,
     builder: (context, themeMode, _) {
+      
       return ValueListenableBuilder<Color>(
         valueListenable: colorModeNotifier,
         builder: (context, colorMode, _) {
+
           return DynamicColorBuilder(
             builder: (lightDynamic, darkDynamic) {
               final lightScheme = ColorScheme.fromSeed(seedColor: colorMode);
@@ -42,6 +41,7 @@ Widget getRootWidget() {
                   Locale('en', 'US'),
                 ],
                 localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                //
 
                 initialRoute: "/",
                 routes: getRootRoutes(),
