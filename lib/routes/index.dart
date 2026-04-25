@@ -34,12 +34,15 @@ Widget getRootWidget() {
                   colorScheme: darkScheme,
                 ),
                 themeMode: themeMode,
+
+                //汉化万能搭配
                 locale: const Locale('zh', 'CN'),
                 supportedLocales: const [
                   Locale('zh', 'CN'),
                   Locale('en', 'US'),
                 ],
                 localizationsDelegates: GlobalMaterialLocalizations.delegates,
+
                 initialRoute: "/",
                 routes: getRootRoutes(),
               );

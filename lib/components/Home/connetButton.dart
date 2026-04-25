@@ -59,7 +59,6 @@ class _connectButtonState extends State<connectButton>
                             await FrpService.instance.stopFrp();
                             _state = 0;
                           }
-                          ;
                           setState(() {});
                         },
                         child: Icon(
