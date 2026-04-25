@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\window_manager.cpp">
+    <ClCompile Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\window_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\window_manager_plugin.cpp">
+    <ClCompile Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\window_manager_plugin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\CMakeLists.txt" />
+    <CustomBuild Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{5335F036-11F9-3062-A8CA-B32E348AABEA}</UniqueIdentifier>
+      <UniqueIdentifier>{FF99A7DE-49E9-395D-833C-AE5DEDF078A6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

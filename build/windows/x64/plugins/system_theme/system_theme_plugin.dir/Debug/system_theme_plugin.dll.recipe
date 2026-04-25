@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\flutter\frp_flutter\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\flutter\x64\Debug\flutter_assemble</FullPath>
+      <FullPath>C:\flutter\frp_flutter\build\windows\x64\flutter\x64\Debug\flutter_assemble</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\plugins\system_theme\Debug\system_theme_plugin.dll</FullPath>
+      <FullPath>C:\flutter\frp_flutter\build\windows\x64\plugins\system_theme\Debug\system_theme_plugin.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -1,81 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import '../pages/Main/index.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:system_theme/system_theme.dart';
 
 //声明主题模式和主题色初始值，在后面外观设置功能中用来修改
-ThemeMode themeMode = ThemeMode.system;
-Color colorMode = SystemTheme.accentColor.accent;
+final themeModeNotifier = ValueNotifier<ThemeMode>(ThemeMode.system);
+final colorModeNotifier = ValueNotifier<Color>(SystemTheme.accentColor.accent);
 
-Widget getRootWidge() {
-  return DynamicColorBuilder(
-    builder: (lightDynamic, darkDynamic) {
-      //深色模式与浅色模式的声明
-      final lightScheme = ColorScheme.fromSeed(
-        //跟随系统强调色
-        seedColor: colorMode,
-      );
 
-      final darkScheme = ColorScheme.fromSeed(
-        //跟随系统强调色
-        seedColor: colorMode,
-        brightness: Brightness.dark,
-      );
+Widget getRootWidget() {
+  return ValueListenableBuilder<ThemeMode>(
+    valueListenable: themeModeNotifier,
+    builder: (context, themeMode, _) {
+      
+      return ValueListenableBuilder<Color>(
+        valueListenable: colorModeNotifier,
+        builder: (context, colorMode, _) {
 
-      return MaterialApp(
-        //浅色模式
-        theme: ThemeData(useMaterial3: true, colorScheme: lightScheme),
+          return DynamicColorBuilder(
+            builder: (lightDynamic, darkDynamic) {
+              final lightScheme = ColorScheme.fromSeed(seedColor: colorMode);
+              final darkScheme = ColorScheme.fromSeed(
+                seedColor: colorMode,
+                brightness: Brightness.dark,
+              );
 
-        //深色模式
-        darkTheme: ThemeData(useMaterial3: true, colorScheme: darkScheme),
+              return MaterialApp(
+                theme: ThemeData(useMaterial3: true, colorScheme: lightScheme),
+                darkTheme: ThemeData(
+                  useMaterial3: true,
+                  colorScheme: darkScheme,
+                ),
+                themeMode: themeMode,
 
-        //深色浅色模式跟随系统
-        themeMode: themeMode,
+                //汉化万能搭配
+                locale: const Locale('zh', 'CN'),
+                supportedLocales: const [
+                  Locale('zh', 'CN'),
+                  Locale('en', 'US'),
+                ],
+                localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                //
 
-        //主路由
-        initialRoute: "/",
-
-        //命名路由
-        routes: getRootRontes(),
+                initialRoute: "/",
+                routes: getRootRoutes(),
+              );
+            },
+          );
+        },
       );
     },
   );
 }
 
-Map<String, Widget Function(BuildContext)> getRootRontes() {
+Map<String, Widget Function(BuildContext)> getRootRoutes() {
   return {
     //主页面路由
-    "/": (context) => MainPage(),
+    "/": (context) => const MainPage(),
   };
-}
-
-//全局重建（使用AppRestartWrapper.restart(context)触发;）
-class AppRestartWrapper extends StatefulWidget {
-  const AppRestartWrapper({super.key});
-
-  @override
-  State<AppRestartWrapper> createState() => _AppRestartWrapperState();
-  // 全局重建入口
-  static void restart(BuildContext context) {
-    final state = context.findAncestorStateOfType<_AppRestartWrapperState>();
-    state?._restart();
-  }
-}
-
-class _AppRestartWrapperState extends State<AppRestartWrapper> {
-  UniqueKey _appKey = UniqueKey();
-
-  void _restart() {
-    setState(() {
-      _appKey = UniqueKey(); // Key 变化 → 整个子树重建
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      key: _appKey,
-      child: getRootWidge(), //要重建的页面
-    );
-  }
 }

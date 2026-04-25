@@ -17,7 +17,7 @@ void main() async {
     size: Size(800, 600),
 
     //窗口最小大小
-    minimumSize: Size(400, 300),
+    minimumSize: Size(400, 400),
 
     //窗口是否居中
     center: true,
@@ -31,7 +31,7 @@ void main() async {
     await windowManager.show();
     await windowManager.focus();
   });
-  }
+  }//完美解决git的问题
 
-  runApp(AppRestartWrapper());
+  runApp(getRootWidget());
 }

@@ -141,25 +141,27 @@ Future<List<Map<String, dynamic>>> loadTunnelConfigs() async {
 // 通过修改文件后缀名来启用/停用隧道配置
 // enabled=true  -> .toml
 // enabled=false -> .bak
-Future<void> toggleTunnelConfigBySuffix(String filePath, bool enabled) async {
+Future<String> toggleTunnelConfigBySuffix(String filePath, bool enabled) async {
   final currentFile = File(filePath);
 
   // 文件不存在则直接返回
   if (!await currentFile.exists()) {
-    return;
+    throw FileSystemException('隧道配置文件不存在', filePath);
   }
 
   final stem = _fileStem(filePath);
   final dir = currentFile.parent.path;
-  final targetPath = '$dir${Platform.pathSeparator}$stem${enabled ? '.toml' : '.bak'}';
+  final targetPath =
+      '$dir${Platform.pathSeparator}$stem${enabled ? '.toml' : '.bak'}';
 
   // 如果目标路径和当前路径相同，说明无需修改
   if (targetPath == filePath) {
-    return;
+    return filePath;
   }
 
   // 直接重命名文件，实现启用/停用切换
-  await currentFile.rename(targetPath);
+  final renamed = await currentFile.rename(targetPath);
+  return renamed.path;
 }
 
 // 根据隧道 map 构建可写入 TOML 的数据结构
@@ -181,8 +183,8 @@ Map<String, dynamic> buildTunnelTomlBody(Map<String, dynamic> tunnel) {
 
         // 远程端口
         'remotePort': tunnel['remotePort'] ?? 0,
-      }
-    ]
+      },
+    ],
   };
 }
 
@@ -215,7 +217,8 @@ Future<String> saveTunnelConfig(
     // 如果文件已存在，则自动追加递增编号避免重名
     var counter = 1;
     while (await File(targetPath).exists()) {
-      targetPath = '${dir.path}${Platform.pathSeparator}${baseStem}_$counter$targetExt';
+      targetPath =
+          '${dir.path}${Platform.pathSeparator}${baseStem}_$counter$targetExt';
       counter++;
     }
   }
@@ -223,13 +226,17 @@ Future<String> saveTunnelConfig(
   // 如果源文件存在，并且目标路径不同，则删除旧文件
   // 这通常发生在编辑时启用状态改变，或文件名策略发生变化时
   final sourceFile = sourceFilePath == null ? null : File(sourceFilePath);
-  if (sourceFile != null && await sourceFile.exists() && sourceFile.path != targetPath) {
+  if (sourceFile != null &&
+      await sourceFile.exists() &&
+      sourceFile.path != targetPath) {
     await sourceFile.delete();
   }
 
   // 将 tunnel map 转成 TOML 文本后写入目标文件
   final targetFile = File(targetPath);
-  final tomlString = TomlDocument.fromMap(buildTunnelTomlBody(tunnel)).toString();
+  final tomlString = TomlDocument.fromMap(
+    buildTunnelTomlBody(tunnel),
+  ).toString();
   await targetFile.writeAsString(tomlString, mode: FileMode.write);
 
   // 返回最终保存路径，便于外部继续使用

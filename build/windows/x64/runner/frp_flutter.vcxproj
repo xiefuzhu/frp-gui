@@ -18,7 +18,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5FF3CE9A-3ED8-3269-B410-51E651658641}</ProjectGuid>
+    <ProjectGuid>{69D9C041-459D-311F-9B53-AFF31378AE1D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -50,19 +50,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\runner\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\flutter\frp_flutter\build\windows\x64\runner\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">frp_flutter.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">frp_flutter</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\runner\Profile\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\flutter\frp_flutter\build\windows\x64\runner\Profile\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">frp_flutter.dir\Profile\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">frp_flutter</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\runner\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\flutter\frp_flutter\build\windows\x64\runner\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">frp_flutter.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">frp_flutter</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
@@ -71,12 +71,15 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows;C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -97,10 +100,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_HAS_EXCEPTIONS=0;FLUTTER_VERSION=\"1.0.0+1\";FLUTTER_VERSION_MAJOR=1;FLUTTER_VERSION_MINOR=0;FLUTTER_VERSION_PATCH=0;FLUTTER_VERSION_BUILD=1;NOMINMAX;UNICODE;_UNICODE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows;C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows;C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -108,16 +111,16 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\flutter\Debug\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\dynamic_color\Debug\dynamic_color_plugin.lib;..\plugins\screen_retriever\Debug\screen_retriever_plugin.lib;..\plugins\system_theme\Debug\system_theme_plugin.lib;..\plugins\window_manager\Debug\window_manager_plugin.lib;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\flutter\Debug\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\dynamic_color\Debug\dynamic_color_plugin.lib;..\plugins\screen_retriever\Debug\screen_retriever_plugin.lib;..\plugins\system_theme\Debug\system_theme_plugin.lib;..\plugins\window_manager\Debug\window_manager_plugin.lib;C:\flutter\frp_flutter\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64/runner/Debug/frp_flutter.lib</ImportLibrary>
+      <ImportLibrary>C:/flutter/frp_flutter/build/windows/x64/runner/Debug/frp_flutter.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64/runner/Debug/frp_flutter.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>C:/flutter/frp_flutter/build/windows/x64/runner/Debug/frp_flutter.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -125,16 +128,19 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
     <Manifest>
-      <AdditionalManifestFiles>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\runner\runner.exe.manifest;</AdditionalManifestFiles>
+      <AdditionalManifestFiles>C:\flutter\frp_flutter\windows\runner\runner.exe.manifest;</AdditionalManifestFiles>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows;C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -157,10 +163,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_VERSION=\"1.0.0+1\";FLUTTER_VERSION_MAJOR=1;FLUTTER_VERSION_MINOR=0;FLUTTER_VERSION_PATCH=0;FLUTTER_VERSION_BUILD=1;NOMINMAX;UNICODE;_UNICODE;CMAKE_INTDIR=\"Profile\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows;C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows;C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -168,16 +174,16 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\flutter\Profile\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\dynamic_color\Profile\dynamic_color_plugin.lib;..\plugins\screen_retriever\Profile\screen_retriever_plugin.lib;..\plugins\system_theme\Profile\system_theme_plugin.lib;..\plugins\window_manager\Profile\window_manager_plugin.lib;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\flutter\Profile\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\dynamic_color\Profile\dynamic_color_plugin.lib;..\plugins\screen_retriever\Profile\screen_retriever_plugin.lib;..\plugins\system_theme\Profile\system_theme_plugin.lib;..\plugins\window_manager\Profile\window_manager_plugin.lib;C:\flutter\frp_flutter\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64/runner/Profile/frp_flutter.lib</ImportLibrary>
+      <ImportLibrary>C:/flutter/frp_flutter/build/windows/x64/runner/Profile/frp_flutter.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64/runner/Profile/frp_flutter.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>C:/flutter/frp_flutter/build/windows/x64/runner/Profile/frp_flutter.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -185,16 +191,19 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
     <Manifest>
-      <AdditionalManifestFiles>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\runner\runner.exe.manifest;</AdditionalManifestFiles>
+      <AdditionalManifestFiles>C:\flutter\frp_flutter\windows\runner\runner.exe.manifest;</AdditionalManifestFiles>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows;C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -217,10 +226,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_VERSION=\"1.0.0+1\";FLUTTER_VERSION_MAJOR=1;FLUTTER_VERSION_MINOR=0;FLUTTER_VERSION_PATCH=0;FLUTTER_VERSION_BUILD=1;NOMINMAX;UNICODE;_UNICODE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows;C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows;C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\system_theme\windows\include;C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -228,16 +237,16 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\flutter\Release\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\dynamic_color\Release\dynamic_color_plugin.lib;..\plugins\screen_retriever\Release\screen_retriever_plugin.lib;..\plugins\system_theme\Release\system_theme_plugin.lib;..\plugins\window_manager\Release\window_manager_plugin.lib;C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\flutter\Release\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\dynamic_color\Release\dynamic_color_plugin.lib;..\plugins\screen_retriever\Release\screen_retriever_plugin.lib;..\plugins\system_theme\Release\system_theme_plugin.lib;..\plugins\window_manager\Release\window_manager_plugin.lib;C:\flutter\frp_flutter\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64/runner/Release/frp_flutter.lib</ImportLibrary>
+      <ImportLibrary>C:/flutter/frp_flutter/build/windows/x64/runner/Release/frp_flutter.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64/runner/Release/frp_flutter.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>C:/flutter/frp_flutter/build/windows/x64/runner/Release/frp_flutter.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -245,15 +254,15 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
     <Manifest>
-      <AdditionalManifestFiles>C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\runner\runner.exe.manifest;</AdditionalManifestFiles>
+      <AdditionalManifestFiles>C:\flutter\frp_flutter\windows\runner\runner.exe.manifest;</AdditionalManifestFiles>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\runner\CMakeLists.txt">
+    <CustomBuild Include="C:\flutter\frp_flutter\windows\runner\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/flutter/frp_flutter/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -262,11 +271,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\flutter\frp_flutter\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/flutter/frp_flutter/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -275,11 +284,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\flutter\frp_flutter\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/flutter/frp_flutter/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp-gui-master/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -288,50 +297,50 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\flutter\frp_flutter\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\runner\flutter_window.cpp" />
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\runner\main.cpp" />
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\runner\utils.cpp" />
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\runner\win32_window.cpp" />
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\flutter\generated_plugin_registrant.cc" />
-    <ResourceCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\windows\runner\Runner.rc" />
+    <ClCompile Include="C:\flutter\frp_flutter\windows\runner\flutter_window.cpp" />
+    <ClCompile Include="C:\flutter\frp_flutter\windows\runner\main.cpp" />
+    <ClCompile Include="C:\flutter\frp_flutter\windows\runner\utils.cpp" />
+    <ClCompile Include="C:\flutter\frp_flutter\windows\runner\win32_window.cpp" />
+    <ClCompile Include="C:\flutter\frp_flutter\windows\flutter\generated_plugin_registrant.cc" />
+    <ResourceCompile Include="C:\flutter\frp_flutter\windows\runner\Runner.rc" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\ZERO_CHECK.vcxproj">
-      <Project>{7B1EE4CF-30A8-3985-91A2-8225C84FAD45}</Project>
+    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\ZERO_CHECK.vcxproj">
+      <Project>{365B12EF-8FC4-3519-9666-8571050BFFEA}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\plugins\dynamic_color\dynamic_color_plugin.vcxproj">
-      <Project>{97C93900-2F2D-38A5-BCBA-2D8BEEAE0A5A}</Project>
+    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\dynamic_color_plugin.vcxproj">
+      <Project>{8232670B-12E9-338B-BDDE-4D57C442ED9B}</Project>
       <Name>dynamic_color_plugin</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\flutter\flutter_assemble.vcxproj">
-      <Project>{A8B1D04A-0158-3688-B047-BF4CBBBD47BA}</Project>
+    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\flutter\flutter_assemble.vcxproj">
+      <Project>{4176E6E1-3FD8-3E02-A824-3E03648568ED}</Project>
       <Name>flutter_assemble</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\flutter\flutter_wrapper_app.vcxproj">
-      <Project>{6A150D4F-8D3A-302B-AEDC-4B7FB7A796EE}</Project>
+    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\flutter\flutter_wrapper_app.vcxproj">
+      <Project>{51E999C5-FCD9-3E7A-813D-E6E34F9F6055}</Project>
       <Name>flutter_wrapper_app</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\plugins\screen_retriever\screen_retriever_plugin.vcxproj">
-      <Project>{FA709B89-ACBB-308C-B71D-637CCC88B277}</Project>
+    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\plugins\screen_retriever\screen_retriever_plugin.vcxproj">
+      <Project>{2424F3C1-75D0-3FFF-AAFD-5F89F2A09819}</Project>
       <Name>screen_retriever_plugin</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\plugins\system_theme\system_theme_plugin.vcxproj">
-      <Project>{7A81A09F-1D82-3DE9-9F21-E24BB035F7E9}</Project>
+    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\plugins\system_theme\system_theme_plugin.vcxproj">
+      <Project>{EF1D1559-1082-34BA-B6EB-7637527B1E87}</Project>
       <Name>system_theme_plugin</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp-gui-master\build\windows\x64\plugins\window_manager\window_manager_plugin.vcxproj">
-      <Project>{E72FF8FD-41FA-3AC8-8FD4-E38E4E465BD0}</Project>
+    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\plugins\window_manager\window_manager_plugin.vcxproj">
+      <Project>{383508E5-46C8-3799-AAD8-283C243382BC}</Project>
       <Name>window_manager_plugin</Name>
     </ProjectReference>
   </ItemGroup>
