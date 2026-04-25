@@ -18,7 +18,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8232670B-12E9-338B-BDDE-4D57C442ED9B}</ProjectGuid>
+    <ProjectGuid>{B80E8B52-27BD-35E6-BC43-7DD4B5EABD22}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -50,19 +50,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">dynamic_color_plugin.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">dynamic_color_plugin</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\Profile\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\Profile\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">dynamic_color_plugin.dir\Profile\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">dynamic_color_plugin</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">dynamic_color_plugin.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">dynamic_color_plugin</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
@@ -72,15 +72,12 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <BufferSecurityCheck></BufferSecurityCheck>
-      <CallingConvention></CallingConvention>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -101,10 +98,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;UNICODE;_UNICODE;CMAKE_INTDIR=\"Debug\";dynamic_color_plugin_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -112,18 +109,18 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\flutter\Debug\flutter_wrapper_plugin.lib;dwmapi.lib;C:\flutter\frp_flutter\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\flutter\Debug\flutter_wrapper_plugin.lib;dwmapi.lib;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Debug/dynamic_color_plugin.lib</ImportLibrary>
+      <ImportLibrary>C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Debug/dynamic_color_plugin.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Debug/dynamic_color_plugin.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Debug/dynamic_color_plugin.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
-      <SubSystem>Console</SubSystem>
+      <SubSystem></SubSystem>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -131,14 +128,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <BufferSecurityCheck></BufferSecurityCheck>
-      <CallingConvention></CallingConvention>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -161,10 +155,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;UNICODE;_UNICODE;CMAKE_INTDIR=\"Profile\";dynamic_color_plugin_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -172,18 +166,18 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\flutter\Profile\flutter_wrapper_plugin.lib;dwmapi.lib;C:\flutter\frp_flutter\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\flutter\Profile\flutter_wrapper_plugin.lib;dwmapi.lib;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Profile/dynamic_color_plugin.lib</ImportLibrary>
+      <ImportLibrary>C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Profile/dynamic_color_plugin.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Profile/dynamic_color_plugin.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Profile/dynamic_color_plugin.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
-      <SubSystem>Console</SubSystem>
+      <SubSystem></SubSystem>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -191,14 +185,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <BufferSecurityCheck></BufferSecurityCheck>
-      <CallingConvention></CallingConvention>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -221,10 +212,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;UNICODE;_UNICODE;CMAKE_INTDIR=\"Release\";dynamic_color_plugin_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\flutter\frp_flutter\windows\flutter\ephemeral;C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -232,29 +223,29 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\flutter\Release\flutter_wrapper_plugin.lib;dwmapi.lib;C:\flutter\frp_flutter\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\flutter\Release\flutter_wrapper_plugin.lib;dwmapi.lib;C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Release/dynamic_color_plugin.lib</ImportLibrary>
+      <ImportLibrary>C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Release/dynamic_color_plugin.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Release/dynamic_color_plugin.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/Release/dynamic_color_plugin.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
-      <SubSystem>Console</SubSystem>
+      <SubSystem></SubSystem>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/flutter/frp_flutter/windows/flutter/ephemeral/.plugin_symlinks/dynamic_color/windows/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows/flutter/ephemeral/.plugin_symlinks/dynamic_color/windows/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -263,11 +254,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/flutter/frp_flutter/windows/flutter/ephemeral/.plugin_symlinks/dynamic_color/windows/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows/flutter/ephemeral/.plugin_symlinks/dynamic_color/windows/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -276,11 +267,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/flutter/frp_flutter/windows/flutter/ephemeral/.plugin_symlinks/dynamic_color/windows/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows/flutter/ephemeral/.plugin_symlinks/dynamic_color/windows/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/plugins/dynamic_color/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -289,32 +280,32 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\plugins\dynamic_color\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include\dynamic_color\dynamic_color_plugin_c_api.h" />
-    <ClCompile Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\dynamic_color_plugin_c_api.cpp" />
-    <ClCompile Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\dynamic_color_plugin.cpp" />
-    <ClInclude Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\dynamic_color_plugin.h" />
+    <ClInclude Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\include\dynamic_color\dynamic_color_plugin_c_api.h" />
+    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\dynamic_color_plugin_c_api.cpp" />
+    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\dynamic_color_plugin.cpp" />
+    <ClInclude Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\.plugin_symlinks\dynamic_color\windows\dynamic_color_plugin.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\ZERO_CHECK.vcxproj">
-      <Project>{365B12EF-8FC4-3519-9666-8571050BFFEA}</Project>
+    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\ZERO_CHECK.vcxproj">
+      <Project>{412F554A-B277-36D1-9F6F-536A8DC5EECB}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\flutter\flutter_assemble.vcxproj">
-      <Project>{4176E6E1-3FD8-3E02-A824-3E03648568ED}</Project>
+    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\flutter\flutter_assemble.vcxproj">
+      <Project>{E491B243-97BB-3DAB-ADBF-7A1D8775E2D5}</Project>
       <Name>flutter_assemble</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\flutter\flutter_wrapper_plugin.vcxproj">
-      <Project>{1924C069-2193-3E51-B23C-F1C03C729F25}</Project>
+    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\flutter\flutter_wrapper_plugin.vcxproj">
+      <Project>{5A0688E8-F824-310B-8230-E4509EFA6611}</Project>
       <Name>flutter_wrapper_plugin</Name>
     </ProjectReference>
   </ItemGroup>

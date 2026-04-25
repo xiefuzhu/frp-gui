@@ -1,6 +1,0 @@
-[[proxies]]
-name = 'ollama'
-type = 'tcp'
-localIP = '127.0.0.1'
-localPort = 11314
-remotePort = 8025
