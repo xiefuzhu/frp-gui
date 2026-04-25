@@ -21,7 +21,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5C2B81A5-3926-34AA-9E5F-A5B7E8082A47}</ProjectGuid>
+    <ProjectGuid>{E112F0B3-F97B-37A9-AEF8-548552FB8CEE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -88,11 +88,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\runner\CMakeLists.txt">
+    <CustomBuild Include="C:\flutter\frp_flutter\windows\runner\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/flutter/frp_flutter/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -101,11 +101,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\flutter\frp_flutter\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/flutter/frp_flutter/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -114,11 +114,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\flutter\frp_flutter\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/flutter/frp_flutter/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -127,7 +127,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\flutter\frp_flutter\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
@@ -135,14 +135,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\ZERO_CHECK.vcxproj">
-      <Project>{412F554A-B277-36D1-9F6F-536A8DC5EECB}</Project>
+    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\ZERO_CHECK.vcxproj">
+      <Project>{365B12EF-8FC4-3519-9666-8571050BFFEA}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\build\windows\x64\runner\frp_flutter.vcxproj">
-      <Project>{8CD9BCB3-F385-3BB4-B23D-EADE7B0F35CA}</Project>
+    <ProjectReference Include="C:\flutter\frp_flutter\build\windows\x64\runner\frp_flutter.vcxproj">
+      <Project>{69D9C041-459D-311F-9B53-AFF31378AE1D}</Project>
       <Name>frp_flutter</Name>
     </ProjectReference>
   </ItemGroup>

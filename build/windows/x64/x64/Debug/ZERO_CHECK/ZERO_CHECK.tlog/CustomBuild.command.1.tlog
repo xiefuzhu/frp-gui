@@ -1,6 +1,6 @@
-^C:\USERS\WESKONGXING\DESKTOP\CODING\FLUTTER\FRP_FLUTTER\BUILD\WINDOWS\X64\CMAKEFILES\EDB1019710D5667DC996D69B5924BE60\GENERATE.STAMP.RULE
+^C:\FLUTTER\FRP_FLUTTER\BUILD\WINDOWS\X64\CMAKEFILES\14594AF429BD6FAFB102B0C3BD28644C\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/frp_flutter.sln
+"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/flutter/frp_flutter/build/windows/x64/frp_flutter.slnx
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

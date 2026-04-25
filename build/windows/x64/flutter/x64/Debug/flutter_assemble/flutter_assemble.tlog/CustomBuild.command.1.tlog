@@ -1,6 +1,6 @@
-^C:\USERS\WESKONGXING\DESKTOP\CODING\FLUTTER\FRP_FLUTTER\BUILD\WINDOWS\X64\CMAKEFILES\5DC69E39C9BEBC3D4866BEDC6F121783\FLUTTER_WINDOWS.DLL.RULE
+^C:\FLUTTER\FRP_FLUTTER\BUILD\WINDOWS\X64\CMAKEFILES\8B1280E88ECDE79B123560D531BC0BA8\FLUTTER_WINDOWS.DLL.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=D:\develop\flutter PROJECT_DIR=C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter FLUTTER_ROOT=D:\develop\flutter FLUTTER_EPHEMERAL_DIR=C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral PROJECT_DIR=C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter FLUTTER_TARGET=C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\lib\main.dart DART_DEFINES=RkxVVFRFUl9WRVJTSU9OPTMuMzguNw==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049M2I2MmVmYzJhMw==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049NzhmYzMwMTJlNA==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My4xMC43 DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\.dart_tool\package_config.json D:/develop/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\flutter\flutter PROJECT_DIR=C:\flutter\frp_flutter FLUTTER_ROOT=C:\flutter\flutter FLUTTER_EPHEMERAL_DIR=C:\flutter\frp_flutter\windows\flutter\ephemeral PROJECT_DIR=C:\flutter\frp_flutter FLUTTER_TARGET=C:\flutter\frp_flutter\lib\main.dart DART_DEFINES=RkxVVFRFUl9WRVJTSU9OPTMuNDEuNw==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049Y2MwNzM0YWM3MQ==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049NTlhYTU4NGZkZg==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My4xMS41 DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=C:\flutter\frp_flutter\.dart_tool\package_config.json C:/flutter/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -8,7 +8,7 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\WESKONGXING\DESKTOP\CODING\FLUTTER\FRP_FLUTTER\BUILD\WINDOWS\X64\CMAKEFILES\B407B3D0391F9A1EA1394BCBF6A19067\FLUTTER_ASSEMBLE.RULE
+^C:\FLUTTER\FRP_FLUTTER\BUILD\WINDOWS\X64\CMAKEFILES\74C2BA02BDADF866631240182B00F232\FLUTTER_ASSEMBLE.RULE
 setlocal
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -16,9 +16,9 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\WESKONGXING\DESKTOP\CODING\FLUTTER\FRP_FLUTTER\WINDOWS\FLUTTER\CMAKELISTS.TXT
+^C:\FLUTTER\FRP_FLUTTER\WINDOWS\FLUTTER\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/windows -BC:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/Users/weskongxing/Desktop/coding/flutter/frp_flutter/build/windows/x64/flutter/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/flutter/frp_flutter/windows -BC:/flutter/frp_flutter/build/windows/x64 --check-stamp-file C:/flutter/frp_flutter/build/windows/x64/flutter/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

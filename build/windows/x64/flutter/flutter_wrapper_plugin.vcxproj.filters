@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
+    <ClCompile Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
+    <ClCompile Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc">
+    <ClCompile Include="C:\flutter\frp_flutter\windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\weskongxing\Desktop\coding\flutter\frp_flutter\windows\flutter\CMakeLists.txt" />
+    <CustomBuild Include="C:\flutter\frp_flutter\windows\flutter\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{531EA25C-46DE-3EA5-97DA-1FC9D733A7DB}</UniqueIdentifier>
+      <UniqueIdentifier>{7D951E00-6791-38E1-91ED-623D85D5B643}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{C4B119A0-5D83-369D-BF7D-81B762DED8F3}</UniqueIdentifier>
+      <UniqueIdentifier>{FF99A7DE-49E9-395D-833C-AE5DEDF078A6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

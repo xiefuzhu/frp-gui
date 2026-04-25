@@ -6,8 +6,27 @@ import 'package:frp_flutter/utils/TerminalUtil.dart';
 ///
 /// 这里只做“只读日志显示”，不再使用 xterm 的交互式终端，
 /// 这样可以避免鼠标点击日志区域时触发输入法/焦点异常。
-class LogView extends StatelessWidget {
+class LogView extends StatefulWidget {
   const LogView({super.key});
+
+  @override
+  State<LogView> createState() => _LogViewState();
+}
+
+class _LogViewState extends State<LogView> {
+  late final ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +50,9 @@ class LogView extends StatelessWidget {
 
           // 使用可选择文本 + 滚动视图，仅用于展示日志。
           return Scrollbar(
+            controller: _scrollController,
             child: SingleChildScrollView(
+              controller: _scrollController,
               padding: const EdgeInsets.only(right: 8),
               child: SelectableText(
                 logs,

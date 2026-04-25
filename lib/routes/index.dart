@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import '../pages/Main/index.dart';
 import 'package:dynamic_color/dynamic_color.dart';
@@ -6,8 +7,6 @@ import 'package:system_theme/system_theme.dart';
 
 final themeModeNotifier = ValueNotifier<ThemeMode>(ThemeMode.system);
 final colorModeNotifier = ValueNotifier<Color>(SystemTheme.accentColor.accent);
-
-
 
 //声明主题模式和主题色初始值，在后面外观设置功能中用来修改
 ThemeMode themeMode = ThemeMode.system;
@@ -22,9 +21,7 @@ Widget getRootWidget() {
         builder: (context, colorMode, _) {
           return DynamicColorBuilder(
             builder: (lightDynamic, darkDynamic) {
-              final lightScheme = ColorScheme.fromSeed(
-                seedColor: colorMode,
-              );
+              final lightScheme = ColorScheme.fromSeed(seedColor: colorMode);
               final darkScheme = ColorScheme.fromSeed(
                 seedColor: colorMode,
                 brightness: Brightness.dark,
@@ -32,8 +29,17 @@ Widget getRootWidget() {
 
               return MaterialApp(
                 theme: ThemeData(useMaterial3: true, colorScheme: lightScheme),
-                darkTheme: ThemeData(useMaterial3: true, colorScheme: darkScheme),
+                darkTheme: ThemeData(
+                  useMaterial3: true,
+                  colorScheme: darkScheme,
+                ),
                 themeMode: themeMode,
+                locale: const Locale('zh', 'CN'),
+                supportedLocales: const [
+                  Locale('zh', 'CN'),
+                  Locale('en', 'US'),
+                ],
+                localizationsDelegates: GlobalMaterialLocalizations.delegates,
                 initialRoute: "/",
                 routes: getRootRoutes(),
               );
@@ -48,7 +54,6 @@ Widget getRootWidget() {
 Map<String, Widget Function(BuildContext)> getRootRoutes() {
   return {
     //主页面路由
-    "/": (context) =>   const MainPage(),
+    "/": (context) => const MainPage(),
   };
 }
-

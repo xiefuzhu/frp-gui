@@ -6,28 +6,32 @@ import 'package:frp_flutter/utils/TerminalUtil.dart';
 int _state = 0; //0未连接，1已连接
 
 class connectButton extends StatefulWidget {
-  const connectButton({super.key,});
+  const connectButton({super.key});
 
   @override
   State<connectButton> createState() => _connectButtonState();
 }
 
-class _connectButtonState extends State<connectButton> with AutomaticKeepAliveClientMixin{
-
+class _connectButtonState extends State<connectButton>
+    with AutomaticKeepAliveClientMixin {
   //必须添加这个 getter，返回 true 表示希望保留状态
   @override
   bool get wantKeepAlive => true;
- 
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
     //按钮大小
-    double buttonSize = MediaQuery.of(context).size.height*0.5 > 200 ? 200 : MediaQuery.of(context).size.height*0.5;
+    double buttonSize = MediaQuery.of(context).size.height * 0.5 > 200
+        ? 200
+        : MediaQuery.of(context).size.height * 0.5;
     //根据按钮状态显示对应颜色
-    Color power = _state == 1 ? Colors.red : Theme.of(context).colorScheme.primaryContainer;
+    Color power = _state == 1
+        ? Colors.red
+        : Theme.of(context).colorScheme.primaryContainer;
     return SizedBox.expand(
-      child:  LayoutBuilder(
-        builder: (context, constraints){
+      child: LayoutBuilder(
+        builder: (context, constraints) {
           return SingleChildScrollView(
             child: ConstrainedBox(
               // Column 的高度至少等于窗口高度
@@ -51,15 +55,18 @@ class _connectButtonState extends State<connectButton> with AutomaticKeepAliveCl
                             TerminalUtil.instance.writeLog("正在启动frp进程...");
                             await FrpService.instance.startFrp();
                             _state = 1;
-                          }
-                          else{
-                            TerminalUtil.instance.clear();
+                          } else {
                             await FrpService.instance.stopFrp();
                             _state = 0;
-                          };
+                          }
+                          ;
                           setState(() {});
                         },
-                        child: Icon(size: buttonSize*0.75, Icons.power_settings_new, color: power),
+                        child: Icon(
+                          size: buttonSize * 0.75,
+                          Icons.power_settings_new,
+                          color: power,
+                        ),
                       ),
                     ),
                     SizedBox(height: 20),
@@ -74,11 +81,11 @@ class _connectButtonState extends State<connectButton> with AutomaticKeepAliveCl
                     ),
                   ],
                 ),
-              )
+              ),
             ),
           );
-        }
-      )
+        },
+      ),
     );
   }
 }
