@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '/routes/index.dart';
 import 'package:system_theme/system_theme.dart';
 
-//主题模式列表
-Widget themeModeSetting(BuildContext context) {
-  final List<ThemeMode> _themeMode = [
+final List<ThemeMode> _themeMode = [
     ThemeMode.system,
     ThemeMode.light,
     ThemeMode.dark,
   ];
   //可选颜色列表
-  final List<Color> _colorMode = [
+final List<Color> _colorMode = [
     SystemTheme.accentColor.accent,
     Colors.purple,
     Colors.redAccent,
@@ -22,12 +21,18 @@ Widget themeModeSetting(BuildContext context) {
     Colors.pinkAccent,
   ];
 
-  List<String> _themeModeName = ["跟随系统", "浅色", "深色"];
-  int? _themeValue = _themeMode.indexOf(themeMode);
+List<String> _themeModeName = ["跟随系统", "浅色", "深色"];
+
+//主题模式列表
+Widget themeModeSetting(BuildContext context) {
 
   return StatefulBuilder(
     builder: (context, setState) {
+      // ✅ 每次都根据最新的 notifier 值重新计算索引
+      final currentThemeMode = themeModeNotifier.value;
+      final int? _themeValue = _themeMode.indexOf(currentThemeMode);
       return InkWell(
+        
         borderRadius: BorderRadius.circular(15),
         onTap: () {
 
@@ -70,8 +75,7 @@ Widget themeModeSetting(BuildContext context) {
                                   selected: _themeValue == index, //按钮的值
                                   label: Text(_themeModeName[index]), //按钮名称
                                   onSelected: (bool selected) {
-                                    themeMode = _themeMode[index];
-                                    AppRestartWrapper.restart(context);
+                                    themeModeNotifier.value = _themeMode[index];
                                     setState(() {},); //更新状态（得益于StatefulBuilder才能使用）
                                   },
                                 );
@@ -93,9 +97,10 @@ Widget themeModeSetting(BuildContext context) {
                                   return  InkWell(
                                     borderRadius: BorderRadius.circular(25),
                                     onTap: (){
+                                      colorModeNotifier.value = _colorMode[index];
                                       colorMode = _colorMode[index];
                                       setState((){});
-                                      AppRestartWrapper.restart(context);
+
                                     },
                                     //ink可以让涟漪动画居于上方
                                     child: Ink(

@@ -31,7 +31,7 @@ void main() async {
     await windowManager.show();
     await windowManager.focus();
   });
-  }
+  }//完美解决git的问题
 
-  runApp(AppRestartWrapper());
+  runApp(getRootWidget());
 }

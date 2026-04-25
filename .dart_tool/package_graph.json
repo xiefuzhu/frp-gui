@@ -11,6 +11,7 @@
         "cupertino_icons",
         "dynamic_color",
         "flutter",
+        "provider",
         "system_theme",
         "toml",
         "window_manager",
@@ -358,6 +359,22 @@
       "name": "vm_service",
       "version": "15.1.0",
       "dependencies": []
+    },
+    {
+      "name": "provider",
+      "version": "6.1.5+1",
+      "dependencies": [
+        "collection",
+        "flutter",
+        "nested"
+      ]
+    },
+    {
+      "name": "nested",
+      "version": "1.0.0",
+      "dependencies": [
+        "flutter"
+      ]
     }
   ],
   "configVersion": 1
