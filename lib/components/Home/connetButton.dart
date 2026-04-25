@@ -22,11 +22,17 @@ class _connectButtonState extends State<connectButton>
   Widget build(BuildContext context) {
     super.build(context);
     //按钮大小
-    final double buttonSize = MediaQuery.of(context).size.height * 0.5 > 200 ? 200 : MediaQuery.of(context).size.height * 0.5;
+    final double buttonSize = MediaQuery.of(context).size.height * 0.5 > 200
+        ? 200
+        : MediaQuery.of(context).size.height * 0.5;
     //按钮图标颜色（与启动状态绑定）
-    final Color power = _state == 1 ? Colors.red : Theme.of(context).colorScheme.primaryContainer;
+    final Color power = _state == 1
+        ? Colors.red
+        : Theme.of(context).colorScheme.primaryContainer;
     //文字颜色（根据当前主题模式自动调整）
-    final Color textColor = Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black;
+    final Color textColor = Theme.of(context).brightness == Brightness.dark
+        ? Colors.white
+        : Colors.black;
 
     return SizedBox.expand(
       child: LayoutBuilder(
@@ -44,7 +50,6 @@ class _connectButtonState extends State<connectButton>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-
                       //启动按钮
                       SizedBox(
                         height: buttonSize,
@@ -73,13 +78,17 @@ class _connectButtonState extends State<connectButton>
                             tween: ColorTween(end: power),
                             duration: const Duration(milliseconds: 100),
                             builder: (context, color, child) {
-                              return Icon(Icons.power_settings_new, size: buttonSize * 0.75, color: color);
+                              return Icon(
+                                Icons.power_settings_new,
+                                size: buttonSize * 0.75,
+                                color: color,
+                              );
                             },
                           ),
                         ),
                       ),
 
-                      const SizedBox(height: 20),  //分隔用
+                      const SizedBox(height: 20), //分隔用
 
                       AnimatedSwitcher(
                         duration: const Duration(milliseconds: 100),
@@ -95,11 +104,12 @@ class _connectButtonState extends State<connectButton>
                         },
                         child: _state == 0
                             ? const SizedBox(key: ValueKey('empty_timer'))
-                            : Center(child: TimerDisplay(key: ValueKey('timer'))),
+                            : Center(
+                                child: TimerDisplay(key: ValueKey('timer')),
+                              ),
                       ),
 
-                      const SizedBox(height: 20),  //分隔用
-
+                      const SizedBox(height: 20), //分隔用
                       //连接状态文字（含切换动画）
                       AnimatedSwitcher(
                         duration: const Duration(milliseconds: 250),
@@ -118,13 +128,9 @@ class _connectButtonState extends State<connectButton>
                         child: Text(
                           _state == 0 ? "点击连接" : "已连接",
                           key: ValueKey(_state),
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: textColor,
-                          ),
+                          style: TextStyle(fontSize: 20, color: textColor),
                         ),
                       ),
-
                     ],
                   ),
                 ),

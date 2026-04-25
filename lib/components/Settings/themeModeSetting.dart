@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import '/routes/index.dart';
 import 'package:system_theme/system_theme.dart';
 
-//声明当前主题模式和主题色初始值，在后面外观设置功能中用来修改
-final _currentThemeModeNotifier = ValueNotifier<ThemeMode>(themeModeNotifier.value);
-final _currentColorModeNotifier = ValueNotifier<Color>(colorModeNotifier.value);
-
-
 //主题模式列表
-final List<ThemeMode> _themeMode = [ThemeMode.system, ThemeMode.light, ThemeMode.dark];
+final List<ThemeMode> _themeMode = [
+  ThemeMode.system,
+  ThemeMode.light,
+  ThemeMode.dark,
+];
 List<String> _themeModeName = ["跟随系统", "浅色", "深色"];
-
 
 //可选颜色列表
 final List<Color> _colorMode = [
@@ -24,20 +22,35 @@ final List<Color> _colorMode = [
   Colors.greenAccent,
   Colors.purpleAccent,
   Colors.pinkAccent,
+  Colors.brown,
 ];
 
-
-
 //外观设置弹窗，包含主题模式和主题色设置
-class ThemeSettingDialog extends StatelessWidget {
+class ThemeSettingDialog extends StatefulWidget {
   const ThemeSettingDialog({super.key});
 
   // 可选：提供一个静态方法，简化调用
   static Future<void> show(BuildContext context) {
     return showDialog(
       context: context,
-      builder: (_) => const ThemeSettingDialog (),
+      builder: (_) => const ThemeSettingDialog(),
     );
+  }
+
+  @override
+  State<ThemeSettingDialog> createState() => _ThemeSettingDialogState();
+}
+
+class _ThemeSettingDialogState extends State<ThemeSettingDialog> {
+  late final ThemeMode _initialThemeMode;
+  late final Color _initialColorMode;
+
+  @override
+  void initState() {
+    super.initState();
+    // 只在弹窗打开时记录一次快照，取消时才能回到打开前状态。
+    _initialThemeMode = themeModeNotifier.value;
+    _initialColorMode = colorModeNotifier.value;
   }
 
   @override
@@ -48,15 +61,18 @@ class ThemeSettingDialog extends StatelessWidget {
         title: const Text('主题', style: TextStyle(fontSize: 30)),
         //弹窗正文内容
         content: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.4 > 400 ? 400 : MediaQuery.of(context).size.height * 0.4,
-          width: MediaQuery.of(context).size.width * 0.5 > 600 ? 600 : MediaQuery.of(context).size.width * 0.5, 
+          height: MediaQuery.of(context).size.height * 0.4 > 400
+              ? 400
+              : MediaQuery.of(context).size.height * 0.4,
+          width: MediaQuery.of(context).size.width * 0.5 > 600
+              ? 600
+              : MediaQuery.of(context).size.width * 0.5,
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsetsGeometry.only(right: 10, left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   const Text("主题模式", style: TextStyle(fontSize: 20)),
 
                   SizedBox(height: 10),
@@ -71,15 +87,12 @@ class ThemeSettingDialog extends StatelessWidget {
                         crossAxisAlignment: WrapCrossAlignment.start,
                         spacing: 10,
                         runSpacing: 5,
-                        children: List.generate(_themeMode.length, (
-                          int index,
-                        ) {
+                        children: List.generate(_themeMode.length, (int index) {
                           return ChoiceChip(
                             side: BorderSide.none,
                             selected: themeValue == index, //按钮的值
                             label: Text(_themeModeName[index]), //按钮名称
                             onSelected: (bool selected) {
-                              _currentThemeModeNotifier.value = themeModeNotifier.value;
                               themeModeNotifier.value = _themeMode[index];
                             },
                           );
@@ -97,16 +110,17 @@ class ThemeSettingDialog extends StatelessWidget {
                     alignment: Alignment.topCenter,
                     child: ValueListenableBuilder<Color>(
                       valueListenable: colorModeNotifier,
-                      builder: (context, currentColor, _ ) {
+                      builder: (context, currentColor, _) {
                         return Wrap(
                           crossAxisAlignment: WrapCrossAlignment.start,
                           spacing: 8,
                           runSpacing: 8,
-                          children: List.generate(_colorMode.length, (int index) {
+                          children: List.generate(_colorMode.length, (
+                            int index,
+                          ) {
                             return InkWell(
                               borderRadius: BorderRadius.circular(25),
                               onTap: () {
-                                _currentColorModeNotifier.value = colorModeNotifier.value;
                                 colorModeNotifier.value = _colorMode[index];
                               },
                               //ink可以让涟漪动画居于上方
@@ -136,13 +150,27 @@ class ThemeSettingDialog extends StatelessWidget {
                                       top: 13,
                                       bottom: 13,
                                       right: 13,
-                                      child: Icon(Icons.check, color: currentColor == _colorMode[index] ? Colors.white : Colors.transparent, size: 20),
+                                      child: Icon(
+                                        Icons.check,
+                                        color: currentColor == _colorMode[index]
+                                            ? Colors.white
+                                            : Colors.transparent,
+                                        size: 20,
+                                      ),
                                     ),
                                     //吸管图标，用于标明该颜色为跟随系统颜色
                                     Positioned(
                                       bottom: -1,
                                       right: -1,
-                                      child: Icon(Icons.colorize, color: _colorMode[index] == SystemTheme.accentColor.accent ? Colors.white : Colors.transparent, size: 20),
+                                      child: Icon(
+                                        Icons.colorize,
+                                        color:
+                                            _colorMode[index] ==
+                                                SystemTheme.accentColor.accent
+                                            ? Colors.white
+                                            : Colors.transparent,
+                                        size: 20,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -159,30 +187,27 @@ class ThemeSettingDialog extends StatelessWidget {
           ),
         ),
         actions: <Widget>[
-            TextButton(
-              child: const Text('取消'),
-              onPressed: () {
-                colorModeNotifier.value = _currentColorModeNotifier.value;
-                themeModeNotifier.value = _currentThemeModeNotifier.value;
-                //关闭弹窗
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: const Text('保存'),
-              onPressed: () async {
-                //关闭弹窗
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-      )
+          TextButton(
+            child: const Text('取消'),
+            onPressed: () {
+              colorModeNotifier.value = _initialColorMode;
+              themeModeNotifier.value = _initialThemeMode;
+              //关闭弹窗
+              Navigator.of(context).pop();
+            },
+          ),
+          TextButton(
+            child: const Text('保存'),
+            onPressed: () async {
+              //关闭弹窗
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
     );
   }
 }
-
-
-
 
 //主题模式列表
 Widget themeModeSetting(BuildContext context) {
@@ -241,7 +266,9 @@ Widget themeModeSetting(BuildContext context) {
             child: Icon(
               Icons.chevron_right,
               size: 30,
-              color: Theme.of(context).brightness == Brightness.dark ? Colors.white.withAlpha(100) : Colors.black.withAlpha(100),
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white.withAlpha(100)
+                  : Colors.black.withAlpha(100),
             ),
           ),
         ],

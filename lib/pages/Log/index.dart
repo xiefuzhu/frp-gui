@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../utils/TerminalUtil.dart';
 
-
-
 /// FRP 日志页面。
 ///
 /// 这里只做“只读日志显示”，不再使用 xterm 的交互式终端，
@@ -35,7 +33,6 @@ class _LogViewState extends State<LogView> {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      color: Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white,
       padding: const EdgeInsets.all(12),
       child: ValueListenableBuilder<String>(
         valueListenable: TerminalUtil.instance.logs,
@@ -45,7 +42,12 @@ class _LogViewState extends State<LogView> {
             return Center(
               child: Text(
                 '暂无日志输出',
-                style: TextStyle(color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black, fontSize: 14),
+                style: TextStyle(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black,
+                  fontSize: 14,
+                ),
               ),
             );
           }

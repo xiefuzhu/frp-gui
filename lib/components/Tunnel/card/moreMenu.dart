@@ -2,19 +2,25 @@ import 'package:flutter/material.dart';
 import '../../../pages/popupwindows/changeTunnel.dart';
 
 //显示更多内容的弹出菜单
-MenuAnchor moreMenu(BuildContext context, Map<String, dynamic> tunnel) {
+MenuAnchor moreMenu(
+  BuildContext context,
+  Map<String, dynamic> tunnel, {
+  VoidCallback? onTunnelUpdated,
+  VoidCallback? onTunnelDeleted,
+}) {
   return MenuAnchor(
     childFocusNode: FocusNode(),
 
     menuChildren: <Widget>[
       MenuItemButton(
         onPressed: () => (MediaQuery.of(context).size.width < 600)
-            ? changeTunnel2(context, tunnel)
-            : changeTunnel(context, tunnel),
+            ? changeTunnel2(context, tunnel, onUpdated: onTunnelUpdated)
+            : changeTunnel(context, tunnel, onUpdated: onTunnelUpdated),
         child: const Text('修改'),
       ),
       MenuItemButton(
-        onPressed: () => deletTunnel(context, tunnel),
+        onPressed: () =>
+            deletTunnel(context, tunnel, onDeleted: onTunnelDeleted),
         child: const Text('删除'),
       ),
     ],
