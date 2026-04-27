@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../utils/ToastUtils.dart';
 import 'card/moreMenu.dart';
-import 'card/switchConfigState.dart';
 import '../../utils/TunnelStorage.dart';
 
 final ValueNotifier<int> _refreshTunnelCard = ValueNotifier(0);
@@ -29,14 +28,16 @@ Container _frpcTomlCard(
     ),
     child: Stack(
       children: [
+
         //隧道开关
         Positioned(
           top: 5,
           right: 5,
           child: StatefulBuilder(
             builder: (context, setSwitchState) {
-              return switchConfigState(
-                enabled: currentEnabled,
+
+              return Switch(
+                value: currentEnabled,
                 onChanged: (value) async {
                   // 先更新本地状态，保证 Switch 动画正常播放。
                   setSwitchState(() {
@@ -72,9 +73,11 @@ Container _frpcTomlCard(
                   }
                 },
               );
+              
             },
           ),
         ),
+
         //更多菜单
         Positioned(
           bottom: 5,
@@ -157,6 +160,7 @@ class _TunnelCardState extends State<TunnelCard> {
 
   @override
   void dispose() {
+    // 删除
     _refreshTunnelCard.removeListener(_onRefreshTrigger);
     super.dispose();
   }
@@ -168,20 +172,17 @@ class _TunnelCardState extends State<TunnelCard> {
 
       builder: (context, snapshot) {
         //判断读取的toml文件是否有数据
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
+       if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasError) {
           return Text('错误: ${snapshot.error}');
         }
-        if (!snapshot.hasData || snapshot.data == null) {
-          return const Text('没有数据');
-        }
 
-        //获取配置数据，并指出数据一定非空
-        final tunnels = snapshot.data!;
+        final tunnels = snapshot.data ?? <Map<String, dynamic>>[];
+
         final currentPaths = tunnels
-            .map((tunnel) => '${tunnel['_filePath'] ?? ''}')
+            .map((tunnel) => tunnel['_filePath'] as String? ?? '')
             .where((path) => path.isNotEmpty)
             .toSet();
 

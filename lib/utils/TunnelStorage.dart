@@ -250,3 +250,70 @@ Future<void> deleteTunnelConfig(String filePath) async {
     await file.delete();
   }
 }
+
+// 读取服务器配置
+Future<Map<String, dynamic>> loadServerConfig() async {
+  await ensureFrpConfigLayout();
+
+  final mainConfigFile = File(frpcMainConfigPath);
+  if (!await mainConfigFile.exists()) {
+    return {
+      'serverAddr': '',
+      'serverPort': '',
+      'token': '',
+    };
+  }
+
+  final document = await TomlDocument.load(frpcMainConfigPath);
+  final config = Map<String, dynamic>.from(document.toMap());
+
+  // frp 新版 token 常见写法可能在 auth 下
+  final authRaw = config['auth'];
+  final auth = authRaw is Map ? Map<String, dynamic>.from(authRaw) : <String, dynamic>{};
+
+  return {
+    'serverAddr': config['serverAddr'] ?? '',
+    'serverPort': config['serverPort'] ?? '',
+    'token': auth['token'] ?? config['token'] ?? '',
+  };
+}
+
+
+//保存服务器配置
+Future<void> saveServerConfig(Map<String, dynamic> serverConfig)  async {
+  await ensureFrpConfigLayout();
+
+  final mainConfigFile = File(frpcMainConfigPath);
+
+  Map<String, dynamic> config = {};
+  if (await mainConfigFile.exists()) {
+    final document = await TomlDocument.load(frpcMainConfigPath);
+    config = Map<String, dynamic>.from(document.toMap());
+  }
+
+  // 保留原有 includes
+  final includesRaw = config['includes'];
+  final includes = <String>[];
+  if (includesRaw is List) {
+    includes.addAll(includesRaw.map((e) => e.toString()));
+  }
+  if (!includes.contains(frpcIncludePattern)) {
+    includes.add(frpcIncludePattern);
+  }
+
+  config['serverAddr'] = '${serverConfig['serverAddr'] ?? ''}';
+
+  final portText = '${serverConfig['serverPort'] ?? ''}'.trim();
+  config['serverPort'] = int.tryParse(portText) ?? 0;
+
+  config['auth'] = {
+    'token': '${serverConfig['token'] ?? ''}',
+  };
+
+  config['includes'] = includes;
+
+  await mainConfigFile.writeAsString(
+    TomlDocument.fromMap(config).toString(),
+    mode: FileMode.write,
+  );
+}

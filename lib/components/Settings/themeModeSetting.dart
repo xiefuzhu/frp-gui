@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '/routes/index.dart';
 import 'package:system_theme/system_theme.dart';
 
@@ -14,15 +13,23 @@ List<String> _themeModeName = ["跟随系统", "浅色", "深色"];
 //可选颜色列表
 final List<Color> _colorMode = [
   SystemTheme.accentColor.accent,
-  Colors.purple,
+  
   Colors.redAccent,
-  Colors.blueAccent,
-  Colors.yellowAccent,
-  Colors.green,
-  Colors.greenAccent,
   Colors.purpleAccent,
   Colors.pinkAccent,
+  Colors.blueAccent,
+  Colors.indigo,
+  Colors.purple,
+  Colors.orange,
+  Colors.yellowAccent,
+  Colors.limeAccent,
+  Colors.teal,
+  Colors.green,
+  Colors.greenAccent,
   Colors.brown,
+  
+  
+
 ];
 
 //外观设置弹窗，包含主题模式和主题色设置
@@ -42,6 +49,8 @@ class ThemeSettingDialog extends StatefulWidget {
 }
 
 class _ThemeSettingDialogState extends State<ThemeSettingDialog> {
+
+  //当前颜色
   late final ThemeMode _initialThemeMode;
   late final Color _initialColorMode;
 
@@ -57,25 +66,22 @@ class _ThemeSettingDialogState extends State<ThemeSettingDialog> {
   Widget build(BuildContext context) {
     return UnconstrainedBox(
       child: AlertDialog(
+        
         //弹窗标题
         title: const Text('主题', style: TextStyle(fontSize: 30)),
         //弹窗正文内容
         content: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.4 > 400
-              ? 400
-              : MediaQuery.of(context).size.height * 0.4,
-          width: MediaQuery.of(context).size.width * 0.5 > 600
-              ? 600
-              : MediaQuery.of(context).size.width * 0.5,
+          height: MediaQuery.of(context).size.height * 0.4 > 400 ? 400 : MediaQuery.of(context).size.height * 0.4,
+          width: MediaQuery.of(context).size.width * 0.5 > 600 ? 600 : MediaQuery.of(context).size.width * 0.5,
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsetsGeometry.only(right: 10, left: 10),
+              padding:  const EdgeInsetsGeometry.only(right: 10, left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text("主题模式", style: TextStyle(fontSize: 20)),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   ValueListenableBuilder<ThemeMode>(
                     valueListenable: themeModeNotifier,
@@ -101,9 +107,9 @@ class _ThemeSettingDialogState extends State<ThemeSettingDialog> {
                     },
                   ),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   const Text("主题色", style: TextStyle(fontSize: 20)),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   //软件颜色选择
                   Container(
@@ -112,27 +118,16 @@ class _ThemeSettingDialogState extends State<ThemeSettingDialog> {
                       valueListenable: colorModeNotifier,
                       builder: (context, currentColor, _) {
                         return Wrap(
+                          
                           crossAxisAlignment: WrapCrossAlignment.start,
                           spacing: 8,
                           runSpacing: 8,
-                          children: List.generate(_colorMode.length, (
-                            int index,
-                          ) {
-                            return InkWell(
-                              borderRadius: BorderRadius.circular(25),
-                              onTap: () {
-                                colorModeNotifier.value = _colorMode[index];
-                              },
-                              //ink可以让涟漪动画居于上方
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                  //圆角
-                                  borderRadius: BorderRadius.circular(25),
-                                  //颜色（来自颜色列表）
-                                  color: _colorMode[index],
-
-                                  //按钮阴影
-                                  boxShadow: [
+                          children: List.generate(_colorMode.length, (int index) {
+                            // 同时使用container和material来实现圆角和涟漪效果，外层container负责圆角和阴影，内层material负责涟漪动画, 解决ink穿透绘制问题，同时保留涟漪动画和圆角效果。ink放在material内层，才能让涟漪动画显示在上方。
+                            return Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                boxShadow: [
                                     BoxShadow(
                                       color: _colorMode[index].withAlpha(200),
                                       blurRadius: 7,
@@ -140,53 +135,74 @@ class _ThemeSettingDialogState extends State<ThemeSettingDialog> {
                                       offset: const Offset(2, 3),
                                     ),
                                   ],
-                                ),
-                                width: 46,
-                                height: 46,
-                                child: Stack(
-                                  children: [
-                                    //选中显示图标，即√
-                                    Positioned(
-                                      top: 13,
-                                      bottom: 13,
-                                      right: 13,
-                                      child: Icon(
-                                        Icons.check,
-                                        color: currentColor == _colorMode[index]
-                                            ? Colors.white
-                                            : Colors.transparent,
-                                        size: 20,
-                                      ),
-                                    ),
-                                    //吸管图标，用于标明该颜色为跟随系统颜色
-                                    Positioned(
-                                      bottom: -1,
-                                      right: -1,
-                                      child: Icon(
-                                        Icons.colorize,
-                                        color:
-                                            _colorMode[index] ==
-                                                SystemTheme.accentColor.accent
-                                            ? Colors.white
-                                            : Colors.transparent,
-                                        size: 20,
-                                      ),
-                                    ),
-                                  ],
-                                ),
                               ),
+                              child: Material(
+                                borderRadius: BorderRadius.circular(25),
+                                clipBehavior: Clip.antiAlias,
+                                color: Colors.transparent,
+                                child: InkWell(
+                                
+                                  borderRadius: BorderRadius.circular(25),
+                                  onTap: () {
+                                    colorModeNotifier.value = _colorMode[index];
+                                  },
+                                  //ink可以让涟漪动画居于上方
+                                  child: Ink(
+                                    
+                                    decoration: BoxDecoration(
+                                      //圆角
+                                      borderRadius: BorderRadius.circular(25),
+                                      //颜色（来自颜色列表）
+                                      color: _colorMode[index],
+
+                                      //按钮阴影
+                                      
+                                    ),
+                                    width: 46,
+                                    height: 46,
+                                    child: Stack(
+                                      children: [
+                                        //选中显示图标，即√
+                                        Positioned(
+                                          top: 13,
+                                          bottom: 13,
+                                          right: 13,
+                                          child: Icon(
+                                            Icons.check,
+                                            color: currentColor == _colorMode[index] ? Colors.white : Colors.transparent,
+                                            size: 20,
+                                          ),
+                                        ),
+                                        //吸管图标，用于标明该颜色为跟随系统颜色
+                                        Positioned(
+                                          bottom: 0,
+                                          right: 0,
+                                          child: Icon(
+                                            Icons.colorize,
+                                            color: _colorMode[index] == SystemTheme.accentColor.accent ? Colors.white : Colors.transparent,
+                                            size: 20,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
                             );
                           }),
                         );
                       },
                     ),
                   ),
+                  
                 ],
               ),
             ),
           ),
         ),
+
         actions: <Widget>[
+          
           TextButton(
             child: const Text('取消'),
             onPressed: () {
@@ -199,6 +215,7 @@ class _ThemeSettingDialogState extends State<ThemeSettingDialog> {
           TextButton(
             child: const Text('保存'),
             onPressed: () async {
+              
               //关闭弹窗
               Navigator.of(context).pop();
             },
@@ -208,6 +225,7 @@ class _ThemeSettingDialogState extends State<ThemeSettingDialog> {
     );
   }
 }
+
 
 //主题模式列表
 Widget themeModeSetting(BuildContext context) {

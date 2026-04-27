@@ -31,7 +31,11 @@ void main() async {
     await windowManager.show();
     await windowManager.focus();
   });
-  }//完美解决git的问题
+  }
+  else if(defaultTargetPlatform == TargetPlatform.android){
+    //安卓平台，暂时不做特殊处理
+  }
+  //完美解决git的问题
 
   runApp(getRootWidget());
 }

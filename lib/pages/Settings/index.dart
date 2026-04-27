@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frp_flutter/components/Settings/themeModeSetting.dart';
 
+import '../../components/Settings/serverSetting.dart';
+
 class SettingView extends StatefulWidget {
   const SettingView({super.key});
 
@@ -17,7 +19,9 @@ class _SettingViewState extends State<SettingView> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              themeModeSetting(context)
+              themeModeSetting(context),
+              SizedBox(height: 10),
+              serverSetting(context),
             ]
           ),
         ),

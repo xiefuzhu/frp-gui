@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:frp_flutter/utils/ToastUtils.dart';
 import '../../components/Tunnel/Card.dart';
 import '../../utils/TunnelStorage.dart';
-import '../../components/Tunnel/popupwindows/configModification.dart';
-import '../../components/Tunnel/popupwindows/tcpConfig.dart';
+import '../../components/popupwindows/configModification.dart';
+import '../../components/popupwindows/tcpConfig.dart';
 
 //控制配置填写文本框数据获取的控制器
 TextEditingController nameconfigController = TextEditingController();

@@ -29,10 +29,11 @@ MenuAnchor moreMenu(
         height: 35,
         width: 35,
         child: IconButton(
+          tooltip: '更多', 
           alignment: Alignment.center,
           // 通过负 X 偏移让菜单从按钮左侧弹出。
           onPressed: () => controller.open(position: const Offset(-20, 0)),
-          icon: Icon(Icons.more_horiz, size: 20),
+          icon: Icon(Icons.more_horiz, size: 20, ),
         ),
       );
     },

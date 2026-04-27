@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../utils/TunnelStorage.dart';
 import '../../utils/ToastUtils.dart';
-import '../../components/Tunnel/popupwindows/configModification.dart';
-import '../../components/Tunnel/popupwindows/tcpConfig.dart';
+import '../../components/popupwindows/configModification.dart';
+import '../../components/popupwindows/tcpConfig.dart';
 
 //控制配置填写文本框数据获取的控制器
 TextEditingController nameconfigController = TextEditingController();
@@ -31,10 +31,8 @@ Future<void> _saveEditedTunnel(
   try {
     editableTunnel['name'] = nameconfigController.text;
     editableTunnel['localIP'] = ipconfigController.text;
-    editableTunnel['localPort'] =
-        int.tryParse(localportconfigController.text) ?? 0;
-    editableTunnel['remotePort'] =
-        int.tryParse(remoteportconfigController.text) ?? 0;
+    editableTunnel['localPort'] = int.tryParse(localportconfigController.text) ?? 0;
+    editableTunnel['remotePort'] = int.tryParse(remoteportconfigController.text) ?? 0;
 
     final sourcePath = tunnel['_filePath'];
     if (sourcePath is! String || sourcePath.isEmpty) {
@@ -87,11 +85,7 @@ Column _changeConfig(BuildContext context, editableTunnel) {
 }
 
 //弹窗布局
-Future<void> changeTunnel(
-  BuildContext context,
-  Map<String, dynamic> tunnel, {
-  VoidCallback? onUpdated,
-}) async {
+Future<void> changeTunnel(BuildContext context, Map<String, dynamic> tunnel, {VoidCallback? onUpdated,}) async {
   final editableTunnel = _buildEditableTunnel(tunnel);
 
   //将读取的配置显示到文本框中，以提供修改
