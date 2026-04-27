@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:frp_flutter/routes/index.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:flutter/foundation.dart';
+import 'utils/ConfigStorage.dart';
 
-void main() async {
+Future<void> main() async {
+  
+  final savedThemeMode = await ThemeStorage.loadThemeMode();
+  final savedColor = await ColorStorage.loadColor();
+
+  themeModeNotifier.value = savedThemeMode;
+  colorModeNotifier.value = savedColor;
+  
   //确保 Flutter 绑定已初始化
   WidgetsFlutterBinding.ensureInitialized();
 

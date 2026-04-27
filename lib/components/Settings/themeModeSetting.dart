@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '/routes/index.dart';
 import 'package:system_theme/system_theme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../utils/ConfigStorage.dart';
 
 //主题模式列表
 final List<ThemeMode> _themeMode = [
@@ -215,6 +217,10 @@ class _ThemeSettingDialogState extends State<ThemeSettingDialog> {
           TextButton(
             child: const Text('保存'),
             onPressed: () async {
+              
+              //将当前选择的主题模式和颜色保存到本地存储中
+              await ThemeStorage.saveThemeMode(themeModeNotifier.value);
+              await ColorStorage.saveColor(colorModeNotifier.value);
               
               //关闭弹窗
               Navigator.of(context).pop();
