@@ -1,0 +1,10 @@
+framework module system_theme {
+  umbrella header "system_theme-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module system_theme.Swift {
+  header "system_theme-Swift.h"
+}

@@ -1,0 +1,4 @@
+
+module system_theme.__Swift {
+  exclude header "system_theme-Swift.h"
+}

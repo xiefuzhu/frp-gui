@@ -11,13 +11,14 @@ import '../../pages/Tunnel/index.dart';
 // 主内容区域
 // 使用 AnimatedSwitcher 在页面切换时添加淡入淡出/切换动画
 Expanded pages(BuildContext context) {
-  final bool isForward = currentIndex > previousIndex;
-  final currentPage = _buildPage(currentIndex);
+  final idx = currentIndexNotifier.value;
+  final bool isForward = idx > previousIndex;
+  final currentPage = _buildPage(idx);
   return Expanded(
     // SafeArea 用于避开系统状态栏、刘海、圆角等安全区域
     child: SafeArea(
-        // 页面切换动画
-        child: AnimatedSwitcher(
+      // 页面切换动画
+      child: AnimatedSwitcher(
         // 新页面切入时的动画曲线
         switchInCurve: Curves.decelerate,
         switchOutCurve: Curves.decelerate,
@@ -25,25 +26,29 @@ Expanded pages(BuildContext context) {
         duration: Duration(milliseconds: 200),
         // 根据当前索引构建对应页面
         transitionBuilder: (child, animation) {
-
           // 根据新旧页面相对位置的情况，选择对应进入动画，即是从左往右还是从右往左进入
-          final pcBeginOffset = (child.key == currentPage.key) ? (isForward ? const Offset(0, -1) : const Offset(0, 1)) : (isForward ? const Offset(0, 1) : const Offset(0, -1));
-          final phoneBeginOffset = (child.key == currentPage.key) ? (isForward ? const Offset(1, 0) : const Offset(-1, 0)) : (isForward ? const Offset(-1, 0) : const Offset(1, 0));
+          final pcBeginOffset = (child.key == currentPage.key)
+              ? (isForward ? const Offset(0, -1) : const Offset(0, 1))
+              : (isForward ? const Offset(0, 1) : const Offset(0, -1));
+          final phoneBeginOffset = (child.key == currentPage.key)
+              ? (isForward ? const Offset(1, 0) : const Offset(-1, 0))
+              : (isForward ? const Offset(-1, 0) : const Offset(1, 0));
 
           return SlideTransition(
             position: Tween<Offset>(
               //设置页面偏移量，以形成页面从左到右的进入动画
-              begin: MediaQuery.of(context).size.width > 600 ? pcBeginOffset : phoneBeginOffset,
-              end:  Offset.zero,
-              ).animate(animation),
+              begin: MediaQuery.of(context).size.width > 600
+                  ? pcBeginOffset
+                  : phoneBeginOffset,
+              end: Offset.zero,
+            ).animate(animation),
             child: child,
           );
         },
-        
 
-          child: currentPage,
-        )
-      )
+        child: currentPage,
+      ),
+    ),
   );
 }
 

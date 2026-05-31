@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
+import '../../utils/FrpService.dart';
+
 // 自定义标题栏
 // 主要用于桌面端窗口控制：拖动、双击最大化、最小化、关闭等
 AppBar appBar(BuildContext context) {
@@ -25,10 +27,7 @@ AppBar appBar(BuildContext context) {
         color: Colors.transparent,
         child: Padding(
           padding: EdgeInsets.only(left: 20),
-          child: Text(
-            "frp_desktop",
-            style: TextStyle(),
-          ),
+          child: Text("frp_desktop", style: TextStyle()),
         ),
       ),
     ),
@@ -44,10 +43,7 @@ AppBar appBar(BuildContext context) {
         onPressed: () {
           windowManager.minimize();
         },
-        icon: const Icon(
-          Icons.horizontal_rule,
-          size: 20,
-        ),
+        icon: const Icon(Icons.horizontal_rule, size: 20),
       ),
       // 最大化/还原窗口
       IconButton(
@@ -58,20 +54,15 @@ AppBar appBar(BuildContext context) {
             windowManager.maximize();
           }
         },
-        icon: const Icon(
-          Icons.crop_square,
-          size: 20,
-        ),
+        icon: const Icon(Icons.crop_square, size: 20),
       ),
       // 关闭窗口
       IconButton(
         onPressed: () {
+          FrpService.instance.stopFrp();
           windowManager.close();
         },
-        icon: const Icon(
-          Icons.close,
-          size: 20,
-        ),
+        icon: const Icon(Icons.close, size: 20),
       ),
     ],
   );

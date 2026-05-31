@@ -4,4 +4,3 @@ includes = ['./tunnels/*.toml']
 
 [auth]
 token = 'token123456'
-

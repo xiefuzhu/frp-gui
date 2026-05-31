@@ -5,7 +5,6 @@ import 'Pages.dart';
 import 'TabBarButton.dart';
 import 'package:flutter/foundation.dart';
 
-
 // 手机端页面
 class PhonePage extends StatefulWidget {
   const PhonePage({super.key});
@@ -16,25 +15,38 @@ class PhonePage extends StatefulWidget {
 
 class _PhonePageState extends State<PhonePage> {
   @override
+  void initState() {
+    super.initState();
+    currentIndexNotifier.addListener(_onIndexChanged);
+  }
+
+  @override
+  void dispose() {
+    currentIndexNotifier.removeListener(_onIndexChanged);
+    super.dispose();
+  }
+
+  void _onIndexChanged() {
+    if (mounted) setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final idx = currentIndexNotifier.value;
     return Scaffold(
-      appBar: defaultTargetPlatform == TargetPlatform.android ? null : appBar(context),
+      appBar: defaultTargetPlatform == TargetPlatform.android
+          ? null
+          : appBar(context),
       body: Column(
         children: [
-          // 主内容区域
           pages(context),
-          // 底部导航栏
           NavigationBar(
             backgroundColor: Theme.of(context).colorScheme.surfaceContainerLow,
-            // 点击底部按钮时切换页面
             onDestinationSelected: (int index) {
-              previousIndex = currentIndex;
-              currentIndex = index;
-              setState(() {});
+              previousIndex = idx;
+              currentIndexNotifier.value = index;
             },
-            // 当前选中的索引
-            selectedIndex: currentIndex,
-            // 底部按钮列表
+            selectedIndex: idx,
             destinations: getBottomTabBarWidget(),
           ),
         ],

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:frp_flutter/utils/ToastUtils.dart';
+import 'package:frp_gui/utils/ToastUtils.dart';
 import '../../components/Tunnel/Card.dart';
 import '../../utils/TunnelStorage.dart';
-import '../../components/Tunnel/popupwindows/configModification.dart';
-import '../../components/Tunnel/popupwindows/tcpConfig.dart';
+import '../../utils/FrpService.dart';
+import '../../components/popupwindows/configModification.dart';
+import '../../components/popupwindows/tcpConfig.dart';
 
 //控制配置填写文本框数据获取的控制器
 TextEditingController nameconfigController = TextEditingController();
@@ -20,67 +21,36 @@ final Map<String, dynamic> newProxies = {
   'remotePort': 0,
 };
 
-
 //配置填写框
-Column _addConfig(BuildContext context){
+Column _addConfig(BuildContext context) {
   return Column(
     children: [
-       Container(
-        alignment: Alignment.centerLeft,
-        child: Text("网络类型:"),
-      ),
+      Container(alignment: Alignment.centerLeft, child: Text("网络类型:")),
       SizedBox(height: 10),
       tcpConfig(context, newProxies),
       SizedBox(height: 10),
-      Container(
-        alignment: Alignment.centerLeft,
-        child: Text("基础配置:"),
-      ),
+      Container(alignment: Alignment.centerLeft, child: Text("基础配置:")),
       SizedBox(height: 10),
-      configModification(
-        context,
-        nameconfigController,
-        "名称",
-        "name",
-      ),
+      configModification(context, nameconfigController, "名称", "name"),
       SizedBox(height: 20),
-      configModification(
-        context,
-        ipconfigController,
-        "本地ip",
-        "127.0.0.1",
-      ),
+      configModification(context, ipconfigController, "本地ip", "127.0.0.1"),
       SizedBox(height: 20),
-      configModification(
-        context,
-        localportconfigController,
-        "本地端口",
-        "25565",
-      ),
+      configModification(context, localportconfigController, "本地端口", "25565"),
       SizedBox(height: 20),
-      configModification(
-        context,
-        remoteportconfigController,
-        "远程端口",
-        "25565",
-      ),
+      configModification(context, remoteportconfigController, "远程端口", "25565"),
     ],
   );
 }
 
-
 //保存配置
-Future<void> _saveEditedTunnel(BuildContext context)async{
+Future<void> _saveEditedTunnel(BuildContext context) async {
   try {
     //用文本输入控制器获取输入的数据然后写入newProxies
     newProxies['name'] = nameconfigController.text;
     newProxies['localIP'] = ipconfigController.text;
-    newProxies['localPort'] =
-        int.tryParse(localportconfigController.text) ??
-        0;
+    newProxies['localPort'] = int.tryParse(localportconfigController.text) ?? 0;
     newProxies['remotePort'] =
-        int.tryParse(remoteportconfigController.text) ??
-        0;
+        int.tryParse(remoteportconfigController.text) ?? 0;
 
     await saveTunnelConfig(
       Map<String, dynamic>.from(newProxies),
@@ -88,13 +58,14 @@ Future<void> _saveEditedTunnel(BuildContext context)async{
     );
 
     //写入成功后的提示（可选）
-    ToastUtils.showToast(context, "保存成功");
+    ToastUtils.showToast(context, "保存成功，正在重启穿透...");
+    // 如果 frp 正在运行，自动重启使新隧道生效
+    await FrpService.instance.restartFrp();
   } catch (e) {
     // 错误处理
     ToastUtils.showToast(context, "保存失败$e");
   }
 }
-
 
 //弹窗布局
 Future<void> addTunnel(BuildContext context) async {
@@ -124,7 +95,7 @@ Future<void> addTunnel(BuildContext context) async {
               child: Padding(
                 padding: EdgeInsetsGeometry.only(right: 10, left: 10),
                 //配置填写框
-                child: _addConfig(context)
+                child: _addConfig(context),
               ),
             ),
           ),
@@ -157,7 +128,6 @@ Future<void> addTunnel(BuildContext context) async {
     },
   );
 }
-
 
 //底部弹出卡片布局
 Future<void> addTunnel2(BuildContext context) async {
@@ -236,4 +206,3 @@ Future<void> addTunnel2(BuildContext context) async {
     },
   );
 }
-

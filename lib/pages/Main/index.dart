@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
-
 // 导入各个页面组件，供主页面按索引切换显示
 import '../../components/Main/PcPage.dart';
 import '../../components/Main/PhonePage.dart';
 
+// 当前选中的页面索引（响应式）
+// 0=首页、1=隧道、2=内核、3=日志、4=设置
+final ValueNotifier<int> currentIndexNotifier = ValueNotifier<int>(0);
+int get currentIndex => currentIndexNotifier.value;
+set currentIndex(int value) {
+  previousIndex = currentIndexNotifier.value;
+  currentIndexNotifier.value = value;
+}
 
-// 当前选中的页面索引
-// 0=首页、1=隧道、2=内核、3=日志、4=设置
-int currentIndex = 0;
 // 先前选中的页面索引
-// 0=首页、1=隧道、2=内核、3=日志、4=设置
 int previousIndex = 0;
 
 // 主页面
@@ -39,8 +42,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-
-
-
-
