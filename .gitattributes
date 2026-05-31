@@ -1,0 +1,43 @@
+# Tell GitHub Linguist to ignore build artifacts and generated files
+build/** linguist-vendored
+build/** linguist-generated
+.dart_tool/** linguist-vendored
+.dart_tool/** linguist-generated
+ios/Pods/** linguist-vendored
+macos/Pods/** linguist-vendored
+.frp/.download/** linguist-vendored
+.frp/.download/** linguist-generated
+
+# Mark these as generated/documentation to exclude from language stats
+*.pcm linguist-vendored
+*.pcm linguist-generated
+*.sdkstatcache linguist-vendored
+*.fingerprint linguist-vendored
+*.modulevalidation linguist-vendored
+*.timestamp linguist-vendored
+*.cache.dill.track.dill linguist-vendored
+*.cache.dill.track.dill linguist-generated
+
+# Explicitly mark Dart as the primary language for the project
+*.dart linguist-language=Dart
+
+# Ignore binary and generated files from language stats
+*.exe linguist-vendored
+*.tar.gz linguist-vendored
+*.zip linguist-vendored
+*.pcm linguist-vendored
+
+# CMake files should not dominate
+CMakeLists.txt linguist-detectable=false
+*.cmake linguist-detectable=false
+
+# Native code should be marked as vendored to not dominate stats
+**/AppDelegate.swift linguist-vendored
+**/Runner-Bridging-Header.h linguist-vendored
+**/GeneratedPluginRegistrant.h linguist-vendored
+**/GeneratedPluginRegistrant.m linguist-vendored
+**/generated_plugin_registrant.cc linguist-vendored
+**/generated_plugin_registrant.h linguist-vendored
+*.xcscheme linguist-vendored
+*.pbxproj linguist-vendored
+*.xcworkspacedata linguist-vendored

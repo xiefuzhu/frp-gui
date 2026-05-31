@@ -1,4 +1,0 @@
-
-module dynamic_color.__Swift {
-  exclude header "dynamic_color-Swift.h"
-}

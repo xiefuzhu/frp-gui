@@ -1,4 +1,0 @@
-
-module system_theme.Swift {
-  header "system_theme-Swift.h"
-}

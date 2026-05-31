@@ -1,4 +1,0 @@
-
-module dynamic_color.Swift {
-  header "dynamic_color-Swift.h"
-}
