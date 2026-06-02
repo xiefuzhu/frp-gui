@@ -199,7 +199,7 @@ frp-gui/
 
 ```bash
 # 1. 克隆项目
-git clone <your-repo-url>
+git clone <https://github.com/xiefuzhu/frp-gui.git>
 cd frp-gui
 
 # 2. 安装依赖
