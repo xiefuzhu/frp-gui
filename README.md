@@ -200,7 +200,7 @@ Platform-specific build tools:
 
 ```bash
 # 1. Clone the repo
-git clone <your-repo-url>
+git clone <https://github.com/xiefuzhu/frp-gui.git>
 cd frp-gui
 
 # 2. Install dependencies
