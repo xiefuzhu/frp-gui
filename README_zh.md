@@ -1,36 +1,36 @@
 # frp-gui
 
-一个使用 Flutter 开发的 FRP（内网穿透）跨平台 GUI 管理客户端，支持 Windows / macOS / Linux / Android / iOS。
+基于 Flutter 构建的跨平台桌面端 FRP（内网穿透）图形化管理客户端，支持 Windows、macOS 与 Linux。
 
-> [English version](./README.md) | [构建指南](./BUILD.md)
-
----
-
-## 软件架构图
-
-```
-┌──────────────────────────────────────────────────────────┐
-│                       UI 层 (Flutter)                     │
-│  ┌────────┬──────────┬──────────┬────────┬───────────┐  │
-│  │ OOBE   │  首页    │ 隧道管理  │ 内核下载 │   日志    │  │
-│  │ 引导页  │ 启动/停止 │ CRUD配置 │ 自动更新 │ 实时输出  │  │
-│  ├────────┴──────────┴──────────┴────────┴───────────┤  │
-│  │              Settings · 服务器/主题/自启            │  │
-│  ├─────────────────────────────────────────────────────┤  │
-│  │          状态管理 (Provider + ValueNotifier)         │  │
-│  ├─────────────────────────────────────────────────────┤  │
-│  │  FrpService    DownloadManager   TunnelStorage      │  │
-│  │  (进程管理)     (分块下载/解压)    (TOML 配置持久化)   │  │
-│  ├─────────────────────────────────────────────────────┤  │
-│  │              FRP 二进制 (frpc)                       │  │
-│  │         外部子进程，stdout 实时捕获                     │  │
-│  └─────────────────────────────────────────────────────┘  │
-└──────────────────────────────────────────────────────────┘
-```
+> [English](./README.md) | [构建指南](./BUILD.md)
 
 ---
 
-## 截图
+## 软件架构
+
+```
++----------------------------------------------------------+
+|                       UI 层 (Flutter)                     |
+|  +--------+----------+----------+--------+------------+  |
+|  | OOBE   |   首页   | 隧道管理 | 内核页 |    日志    |  |
+|  | 引导页 | 启停计时 | 多协议   | 镜像源 |  实时输出  |  |
+|  +--------+----------+----------+--------+------------+  |
+|  |             设置页 · 外观 / 服务端 / 开机自启          |  |
+|  +-------------------------------------------------------+  |
+|  |     控制器层 (ThemeController / TunnelList / Timer)    |  |
+|  +-------------------------------------------------------+  |
+|  |  FrpProcessService  KernelDownloadService  ConfigRepo |  |
+|  |  (进程探活/孤儿清理)  (Isolate 流式下载解压)  (TOML)    |  |
+|  +-------------------------------------------------------+  |
+|  |                  FRP 客户端内核 (frpc)                 |  |
+|  |              外部子进程，stdout/stderr 捕获            |  |
+|  +-------------------------------------------------------+  |
++----------------------------------------------------------+
+```
+
+---
+
+## 界面预览
 
 ### macOS — 主界面
 
@@ -48,199 +48,77 @@
 
 ## 功能特性
 
-| 模块 | 功能 |
+| 模块 | 说明 |
 |------|------|
-| 🚀 **OOBE 引导** | 首次启动引导用户配置 FRP 服务器地址、远程端口和 Token |
-| 🏠 **首页** | 一键启动/停止 FRP 守护进程，实时查看运行状态 |
-| 🔗 **隧道管理** | 可视化 CRUD 代理配置（TOML 格式），支持添加/修改/删除/启停隧道规则 |
-| 📥 **内核下载** | 自动从 GitHub Releases 获取最新 FRP 二进制，多线程分块下载 + 自动解压安装 |
-| 📋 **日志查看** | 实时滚动显示 FRP 进程输出，ANSI 转义码已过滤 |
-| 🎨 **外观设置** | 亮色/暗色/跟随系统主题切换 + 自定义主题色（Material You） |
-| ⚙️ **服务器设置** | 配置 frp 远程服务器地址、端口及鉴权 Token |
-| 🔄 **开机自启** | 桌面平台支持开机自动启动 FRP 穿透服务 |
-
-### 亮点
-
-- **自适应布局**：屏幕宽度 > 600px 显示 PC 侧边栏布局，≤ 600px 显示手机底部导航栏布局
-- **平台智能适配**：自动检测系统架构（x64/ARM64），下载对应平台的 FRP 二进制
-- **macOS 沙盒兼容**：自动移除 quarantine 标记 + 设置可执行权限
-- **多语言支持**：中文（默认）+ 英文
-- **OOBE 首次引导**：新用户首次打开自动进入配置向导，填写服务器信息后方可进入主界面
+| **OOBE 首次引导** | 首次启动引导配置 FRP 服务器地址、端口与 Token，也支持跳过先下载内核 |
+| **首页控制** | 一键启动/停止 `frpc` 守护进程，内置秒退探活、孤儿进程安全清理与连接计时 |
+| **多协议隧道** | 可视化管理 `tcp`、`udp`、`http`、`https`、`stcp`、`xtcp`、`sudp` 隧道，单隧道独立 `.toml`/`.bak` 切换并保留自定义扩展字段 |
+| **内核在线管理** | 后台 `Isolate` 流式拉取 GitHub Releases 对应架构内核，支持镜像加速、自动回退、热替换与中途取消 |
+| **实时日志** | 自动过滤 ANSI 控制字符，跟随滚动展示子进程输出，支持一键清空 |
+| **外观定制** | 支持跟随系统/浅色/深色模式及系统强调色、多款 Material 3 主题色持久化 |
+| **服务端配置** | 修改服务端地址、端口与鉴权令牌，保存后自动平滑重启运行中的穿透连接且保留自定义配置段 |
+| **开机自启动** | 覆盖 Windows 注册表 `HKCU\Run`、macOS `LaunchAgents` 与 Linux `XDG Autostart` |
 
 ---
 
-## 支持的平台
+## 支持平台
 
-| 平台 | 状态 | 打包格式 |
+| 平台 | 状态 | 产物形态 |
 |------|------|----------|
-| Windows (x64) | ✅ 完善 | `.exe` (MSIX 可选) |
-| macOS (Intel + Apple Silicon) | ✅ 完善 | `.app` |
-| Linux (x64 + ARM64) | ✅ 完善 | 可执行文件 |
-| Android | ✅ 完善 | `.apk` / `.aab` |
-| iOS | ✅ 完善 | `.ipa` |
-| Web | ⚠️ 未完善 | 仅脚手架 |
+| Windows (x64 / ARM64) | 已支持 | `.exe` |
+| macOS (Intel + Apple Silicon) | 已支持 | `.app` / `.dmg` |
+| Linux (x64 + ARM64) | 已支持 | 可执行文件目录 |
 
 ---
 
-## 部署
-
-### 下载
-
-可在 GitHub 的 Release 页下载最新版本的 frp-gui，支持以下平台：
-
-| 平台 | 格式 |
-|------|------|
-| Windows | `frp-gui-windows-x64.zip` |
-| macOS (Intel) | `frp-gui-macos-x64.dmg` |
-| macOS (Apple Silicon) | `frp-gui-macos-arm64.dmg` |
-| Linux | `frp-gui-linux-x64.tar.gz` |
-| Android | `frp-gui-android.apk` |
-
-### 客户端运行
-
-客户端直接在对应平台运行即可：
-
-- **Windows**：解压后双击 `frp_gui.exe`
-- **macOS**：将 `.app` 拖入 Applications 文件夹后打开
-- **Linux**：终端执行 `./frp_gui`
-
-#### 首次使用（OOBE）
-
-首次打开应用时，会自动进入 **OOBE 配置引导页**，需要填写：
-
-| 配置项 | 说明 | 示例 |
-|--------|------|------|
-| 服务器地址 | FRP 服务端的 IP 或域名 | `192.168.1.100` 或 `frp.example.com` |
-| 远程端口 | FRP 服务端的绑定端口 | `7000` |
-| Token | 服务端鉴权令牌（可选） | — |
-
-填写完成点击「完成配置」后，配置将写入 `frp/frpc.toml`，之后自动跳转到主界面。后续启动将跳过 OOBE 直接进入主界面。
-
-> **提示**：如需修改服务器配置，可随时在「设置 → 服务器设置」中调整。
-
-#### 隧道管理
-
-在「隧道管理」页面可以：
-
-- **新建隧道**：填写名称、类型（tcp/udp/http 等）、本地 IP/端口、远程端口
-- **编辑隧道**：点击已有隧道进行修改
-- **启停隧道**：通过切换开关启用/停用单个隧道
-- **删除隧道**：移除不再需要的隧道配置
-
-每个隧道以独立 `.toml` 文件保存在 `frp/tunnels/` 目录下，启用状态通过文件后缀（`.toml` / `.bak`）控制。
-
-#### 开机自启
-
-桌面平台（Windows/macOS/Linux）支持开机自动启动 FRP 服务：
-
-1. 进入「设置」页面
-2. 打开「开机自启」开关
-3. 下次系统启动时将自动运行 FRP 穿透服务
-
----
-
-## 项目结构
+## 目录结构
 
 ```
 frp-gui/
 ├── lib/
-│   ├── main.dart                    # 应用入口，含 OOBE 检测
-│   ├── routes/
-│   │   └── index.dart               # 路由 & 主题配置
-│   ├── pages/
-│   │   ├── OOBE/                    # 首次配置引导页
-│   │   ├── Main/                    # 主页面（自适应布局）
-│   │   ├── Home/                    # 首页（启动/停止按钮）
-│   │   ├── Tunnel/                  # 隧道管理页
-│   │   ├── Download/                # 内核下载页
-│   │   ├── Log/                     # 日志查看页
-│   │   ├── Settings/                # 外观 · 服务器 · 自启设置
-│   │   └── popupwindows/            # 弹窗组件
-│   ├── components/                  # 各页面的子组件
-│   └── utils/
-│       ├── FrpService.dart          # FRP 进程管理（单例）
-│       ├── DownloadManager.dart     # 下载管理器（单例）
-│       ├── TunnelStorage.dart       # 隧道 & 服务器配置持久化
-│       ├── ConfigStorage.dart       # 主题设置存储
-│       ├── AutoStartManager.dart    # 开机自启管理
-│       └── TerminalUtil.dart        # 日志输出工具
+│   ├── main.dart                    # 应用入口、桌面窗口关闭拦截、OOBE 与 --autostart
+│   ├── app.dart                     # MaterialApp 主题与路由注册
+│   ├── models/                      # 强类型领域模型（ServerConfig、TunnelConfig 等）
+│   ├── services/                    # TOML 配置仓储、进程生命周期、Isolate 下载、自启动服务
+│   ├── controllers/                 # ChangeNotifier 状态协调器
+│   └── ui/
+│       ├── shell/                   # 宽窄屏自适应导航外壳与自定义桌面标题栏
+│       ├── pages/                   # 业务页面（home / tunnels / download / logs / settings / oobe）
+│       ├── widgets/                 # 响应式弹窗、输入组件与设置卡片
+│       └── utils/                   # 胶囊浮动提示工具
+├── test/                            # 存储、后台 Isolate 下载与界面导航回归测试
 ├── frp/
-│   ├── frpc                         # FRP 客户端二进制（自动下载）
-│   ├── frpc.toml                    # 主配置文件
-│   └── tunnels/                     # 隧道配置目录
-├── image/                           # 截图
-├── android/                         # Android 平台
-├── ios/                             # iOS 平台
-├── macos/                           # macOS 平台
-├── linux/                           # Linux 平台
-├── windows/                         # Windows 平台
-└── web/                             # Web 平台（未完善）
+│   └── frpc.example.toml            # 脱敏主配置示例模板（运行期二进制与私有配置已忽略）
+├── image/                           # 界面截图
+├── macos/                           # macOS 原生工程
+├── linux/                           # Linux 原生工程
+└── windows/                         # Windows 原生工程
 ```
 
 ---
 
-## 开发
-
-### 环境要求
-
-- **Flutter SDK** ≥ 3.10.7
-- **Dart SDK** ≥ 3.10.7
-
-平台特定构建工具：
-
-| 目标平台 | 所需工具 |
-|----------|----------|
-| Android | Android Studio + Android SDK |
-| iOS / macOS | Xcode 15+ + CocoaPods |
-| Windows | Visual Studio 2022 (含「使用 C++ 的桌面开发」) |
-| Linux | CMake + GTK 3 开发库 |
-
-### 快速开始
+## 快速开始
 
 ```bash
-# 1. 克隆项目
-git clone <https://github.com/xiefuzhu/frp-gui.git>
+# 1. 克隆仓库
+git clone https://github.com/xiefuzhu/frp-gui.git
 cd frp-gui
 
 # 2. 安装依赖
 flutter pub get
 
-# 3. 运行（自动选择当前平台）
-flutter run
+# 3. 静态检查与回归测试
+flutter analyze
+flutter test
+
+# 4. 启动桌面客户端
+flutter run -d windows   # 或 macos / linux
 ```
 
-### 构建发布
-
-各平台 Release 构建命令详见 [BUILD.md](./BUILD.md)。
-
-### 依赖项
-
-主要依赖：
-
-| 包名 | 用途 |
-|------|------|
-| `provider` | 状态管理 |
-| `shared_preferences` | 本地持久化（OOBE 状态、主题） |
-| `toml` | TOML 配置文件解析 |
-| `window_manager` | 桌面窗口控制 |
-| `xterm` | 终端模拟（日志） |
-| `dynamic_color` | Material You 动态取色 |
-| `archive` | 下载包解压 |
+各平台打包说明请参见 [BUILD.md](./BUILD.md)。
 
 ---
 
-## 注意事项
+## 开源许可
 
-1. **FRP 二进制需要单独下载**：首次使用请在「内核下载」页面自动从 GitHub Releases 下载对应平台的 `frpc`
-2. **macOS 首次运行**：由于沙盒已禁用，首次启动可能需要手动允许网络访问
-3. **Linux 依赖**：
-   ```bash
-   sudo apt install libgtk-3-dev cmake clang
-   ```
-4. **Windows**：需要安装 Visual Studio 2022 并勾选「使用 C++ 的桌面开发」
-
----
-
-## License
-
-本项目使用的 FRP 二进制来自 [fatedier/frp](https://github.com/fatedier/frp)，遵循其 Apache 2.0 License。
+客户端在线下载的 FRP 内核来自 [fatedier/frp](https://github.com/fatedier/frp)，遵循 Apache 2.0 许可证。

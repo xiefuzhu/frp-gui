@@ -3,10 +3,9 @@ build/** linguist-vendored
 build/** linguist-generated
 .dart_tool/** linguist-vendored
 .dart_tool/** linguist-generated
-ios/Pods/** linguist-vendored
 macos/Pods/** linguist-vendored
-.frp/.download/** linguist-vendored
-.frp/.download/** linguist-generated
+frp/** linguist-vendored
+frp/** linguist-generated
 
 # Mark these as generated/documentation to exclude from language stats
 *.pcm linguist-vendored

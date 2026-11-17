@@ -1,0 +1,148 @@
+name: Desktop CI and Release
+
+on:
+  push:
+    branches: [master, dev]
+    tags: ['v*']
+  pull_request:
+    branches: [master, dev]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+jobs:
+  check:
+    name: Analyze and test
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test --concurrency=1 --reporter expanded
+      - name: Verify release tag matches app version
+        if: startsWith(github.ref, 'refs/tags/')
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          version=$(awk '/^version:/ {print $2}' pubspec.yaml)
+          expected="v${version%%+*}"
+          if [ "$RELEASE_TAG" != "$expected" ]; then
+            echo "Tag $RELEASE_TAG does not match pubspec version $expected"
+            exit 1
+          fi
+
+  build:
+    name: Build ${{ matrix.target }} ${{ matrix.arch }}
+    needs: check
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: windows-latest
+            target: windows
+            arch: x64
+            asset: frp-gui-windows-x64.zip
+          - runner: windows-11-arm
+            target: windows
+            arch: arm64
+            asset: frp-gui-windows-arm64.zip
+          - runner: macos-15
+            target: macos
+            arch: arm64
+            asset: frp-gui-macos-arm64.zip
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+          architecture: ${{ matrix.arch }}
+      - run: flutter config --enable-${{ matrix.target }}-desktop
+      - run: flutter pub get
+      - run: flutter build ${{ matrix.target }} --release --split-debug-info=build/symbols --tree-shake-icons
+      - name: Package Windows bundle without debug symbols
+        if: matrix.target == 'windows'
+        shell: pwsh
+        run: |
+          $bundle = 'build/windows/${{ matrix.arch }}/runner/Release'
+          if (!(Test-Path "$bundle/frp_gui.exe")) { throw 'Expected executable is missing' }
+          New-Item -ItemType Directory -Force staging/frp | Out-Null
+          Get-ChildItem $bundle | Where-Object { $_.Extension -notin '.pdb', '.exp', '.lib' } | Copy-Item -Destination staging -Recurse
+          Copy-Item frp/frpc.example.toml staging/frp/
+          Get-ChildItem $bundle -Filter *.pdb | Copy-Item -Destination build/symbols
+          Compress-Archive -Path staging/* -DestinationPath '${{ matrix.asset }}' -CompressionLevel Optimal
+      - name: Thin macOS binaries to ARM64 and package
+        if: matrix.target == 'macos'
+        shell: bash
+        run: |
+          app=build/macos/Build/Products/Release/frp_gui.app
+          test -d "$app"
+          while IFS= read -r -d '' binary; do
+            if file -b "$binary" | grep -q 'Mach-O'; then
+              archs=$(lipo -archs "$binary")
+              if [[ " $archs " != *" arm64 "* ]]; then
+                echo "Missing ARM64 slice: $binary ($archs)"
+                exit 1
+              fi
+              if [[ "$archs" != arm64 ]]; then
+                lipo "$binary" -thin arm64 -output "$binary.arm64"
+                chmod +x "$binary.arm64"
+                mv "$binary.arm64" "$binary"
+              fi
+            fi
+          done < <(find "$app" -type f -print0)
+          codesign --force --deep --sign - "$app"
+          ditto -c -k --sequesterRsrc --keepParent "$app" '${{ matrix.asset }}'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ matrix.target }}-${{ matrix.arch }}
+          path: ${{ matrix.asset }}
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve symbols for crash analysis
+        uses: actions/upload-artifact@v4
+        with:
+          name: symbols-${{ matrix.target }}-${{ matrix.arch }}
+          path: build/symbols/
+          if-no-files-found: error
+          retention-days: 90
+
+  release:
+    name: Publish tagged release
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: release-*
+          path: artifacts
+          merge-multiple: true
+      - name: Generate checksums
+        working-directory: artifacts
+        run: sha256sum *.zip > SHA256SUMS.txt
+      - uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          files: |
+            artifacts/*.zip
+            artifacts/SHA256SUMS.txt
