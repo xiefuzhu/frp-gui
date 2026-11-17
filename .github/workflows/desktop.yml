@@ -66,10 +66,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
+        if: matrix.target != 'windows' || matrix.arch != 'arm64'
         with:
           channel: stable
           cache: true
           architecture: ${{ matrix.arch }}
+      - name: Bootstrap native Flutter SDK on Windows ARM64
+        if: matrix.target == 'windows' && matrix.arch == 'arm64'
+        shell: pwsh
+        env:
+          FLUTTER_HOST_ARCH: arm64
+        run: |
+          $sdk = Join-Path $env:RUNNER_TEMP 'flutter-arm64'
+          git clone --depth 1 --branch stable https://github.com/flutter/flutter.git $sdk
+          if ($LASTEXITCODE -ne 0) { throw 'Flutter SDK checkout failed' }
+          & "$sdk/bin/flutter.bat" --version
+          if ($LASTEXITCODE -ne 0) { throw 'Flutter SDK bootstrap failed' }
+          $dartVersion = & "$sdk/bin/dart.bat" --version 2>&1 | Out-String
+          if ($LASTEXITCODE -ne 0) { throw 'Dart SDK verification failed' }
+          if ($dartVersion -notmatch 'windows_arm64') { throw "Expected native ARM64 Dart SDK: $dartVersion" }
+          "$sdk/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          "FLUTTER_ROOT=$sdk" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          'FLUTTER_HOST_ARCH=arm64' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
       - run: flutter config --enable-${{ matrix.target }}-desktop
       - run: flutter pub get
       - run: flutter build ${{ matrix.target }} --release --split-debug-info=build/symbols --tree-shake-icons
