@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:frp_gui/app.dart';
+import 'package:frp_gui/controllers/tunnel_list_controller.dart';
 import 'package:frp_gui/services/auto_start_service.dart';
 import 'package:frp_gui/services/config_repository.dart';
 import 'package:frp_gui/services/frp_paths.dart';
@@ -10,17 +11,28 @@ import 'package:frp_gui/ui/pages/tunnels/tunnels_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  late Directory tempDir;
+
+  setUp(() async {
+    tempDir = await Directory.systemTemp.createTemp('frp_widget_test_');
+    FrpPaths.debugBaseDirOverride = tempDir.path;
+    AutoStartService.debugOverrideEnabled = false;
+    await ConfigRepository.instance.ensureLayout();
+  });
+
+  tearDown(() async {
+    FrpPaths.debugBaseDirOverride = null;
+    AutoStartService.debugOverrideEnabled = null;
+    if (await tempDir.exists()) {
+      await tempDir.delete(recursive: true);
+    }
+  });
+
   testWidgets('Desktop and compact layout navigation smoke test', (
     WidgetTester tester,
   ) async {
     SharedPreferences.setMockInitialValues({'oobe_completed': true});
-    AutoStartService.debugOverrideEnabled = false;
-    late Directory tempDir;
-    await tester.runAsync(() async {
-      tempDir = await Directory.systemTemp.createTemp('frp_widget_test_');
-      FrpPaths.debugBaseDirOverride = tempDir.path;
-      await ConfigRepository.instance.ensureLayout();
-    });
 
     try {
       tester.view.physicalSize = const Size(840, 620);
@@ -33,8 +45,7 @@ void main() {
       expect(find.text('点击连接'), findsOneWidget);
       expect(find.byType(NavigationRail), findsOneWidget);
 
-      await tester.tap(find.text('隧道'));
-      await tester.pump(const Duration(milliseconds: 300));
+      await _openTunnels(tester);
       expect(find.byType(TunnelsPage), findsOneWidget);
       expect(find.byIcon(Icons.add), findsOneWidget);
 
@@ -51,13 +62,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 300));
       expect(find.byType(NavigationBar), findsOneWidget);
     } finally {
-      FrpPaths.debugBaseDirOverride = null;
-      AutoStartService.debugOverrideEnabled = null;
-      await tester.runAsync(() async {
-        if (await tempDir.exists()) {
-          await tempDir.delete(recursive: true);
-        }
-      });
+      await tester.pumpWidget(const SizedBox.shrink());
     }
   });
 
@@ -65,12 +70,6 @@ void main() {
     WidgetTester tester,
   ) async {
     SharedPreferences.setMockInitialValues({});
-    late Directory tempDir;
-    await tester.runAsync(() async {
-      tempDir = await Directory.systemTemp.createTemp('frp_oobe_test_');
-      FrpPaths.debugBaseDirOverride = tempDir.path;
-      await ConfigRepository.instance.ensureLayout();
-    });
 
     try {
       tester.view.physicalSize = const Size(840, 620);
@@ -86,12 +85,7 @@ void main() {
 
       expect(find.text('点击连接'), findsOneWidget);
     } finally {
-      FrpPaths.debugBaseDirOverride = null;
-      await tester.runAsync(() async {
-        if (await tempDir.exists()) {
-          await tempDir.delete(recursive: true);
-        }
-      });
+      await tester.pumpWidget(const SizedBox.shrink());
     }
   });
 
@@ -99,12 +93,6 @@ void main() {
     WidgetTester tester,
   ) async {
     SharedPreferences.setMockInitialValues({'oobe_completed': true});
-    late Directory tempDir;
-    await tester.runAsync(() async {
-      tempDir = await Directory.systemTemp.createTemp('frp_dialog_test_');
-      FrpPaths.debugBaseDirOverride = tempDir.path;
-      await ConfigRepository.instance.ensureLayout();
-    });
 
     try {
       tester.view.physicalSize = const Size(840, 620);
@@ -114,9 +102,7 @@ void main() {
       await tester.pumpWidget(const FrpGuiApp());
       await tester.pump(const Duration(milliseconds: 300));
 
-      await tester.tap(find.text('隧道'));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 300));
+      await _openTunnels(tester);
 
       await tester.tap(find.byIcon(Icons.add));
       await tester.pump();
@@ -144,12 +130,28 @@ void main() {
 
       await tester.pump(const Duration(seconds: 2));
     } finally {
-      FrpPaths.debugBaseDirOverride = null;
-      await tester.runAsync(() async {
-        if (await tempDir.exists()) {
-          await tempDir.delete(recursive: true);
-        }
-      });
+      await tester.pumpWidget(const SizedBox.shrink());
     }
   });
+}
+
+Future<void> _openTunnels(WidgetTester tester) async {
+  final controller = TunnelListController.instance;
+  await tester.tap(find.text('隧道'));
+  await tester.pump();
+
+  // File I/O needs real time; its continuations also need fake-zone pumps.
+  final stopwatch = Stopwatch()..start();
+  while (controller.isLoading &&
+      stopwatch.elapsed < const Duration(seconds: 10)) {
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 10)),
+    );
+    await tester.pump(const Duration(milliseconds: 16));
+  }
+
+  expect(controller.isLoading, isFalse, reason: '隧道配置加载超时');
+  expect(controller.error, isNull);
+  await tester.pumpAndSettle();
+  expect(find.text('暂无隧道配置，点击右下角按钮新增'), findsOneWidget);
 }
